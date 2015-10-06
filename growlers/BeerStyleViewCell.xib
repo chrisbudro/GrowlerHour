@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BeerStyleCell" rowHeight="83" id="ewV-Lg-zVX" customClass="BeerStyleViewCell" customModule="growlers" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewV-Lg-zVX" id="5mY-28-aSt">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="82.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUg-ay-oMu">
+                        <rect key="frame" x="8" y="4" width="304" height="74.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="35 Beers on tap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilx-HT-rXD">
+                                <rect key="frame" x="210" y="43.5" width="85.5" height="22.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Belgian Style" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3b-Q0-DuQ">
+                                <rect key="frame" x="109" y="8" width="186.5" height="36"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ilx-HT-rXD" firstAttribute="trailing" secondItem="D3b-Q0-DuQ" secondAttribute="trailing" id="NIl-Lp-dSr"/>
+                            <constraint firstItem="ilx-HT-rXD" firstAttribute="top" secondItem="D3b-Q0-DuQ" secondAttribute="bottom" id="PYp-28-MJD"/>
+                            <constraint firstAttribute="bottom" secondItem="ilx-HT-rXD" secondAttribute="bottom" constant="8" id="SNf-Y6-7YQ"/>
+                            <constraint firstItem="D3b-Q0-DuQ" firstAttribute="top" secondItem="JUg-ay-oMu" secondAttribute="top" constant="8" id="WWd-40-4C5"/>
+                            <constraint firstAttribute="trailing" secondItem="D3b-Q0-DuQ" secondAttribute="trailing" constant="8" id="tfp-Tm-pdI"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="JUg-ay-oMu" secondAttribute="trailing" constant="8" id="QUt-Zy-JZm"/>
+                    <constraint firstItem="JUg-ay-oMu" firstAttribute="trailing" secondItem="5mY-28-aSt" secondAttribute="trailingMargin" id="aAR-QU-ONI"/>
+                    <constraint firstItem="JUg-ay-oMu" firstAttribute="top" secondItem="5mY-28-aSt" secondAttribute="top" constant="4" id="vdL-cl-X9Z"/>
+                    <constraint firstItem="JUg-ay-oMu" firstAttribute="leading" secondItem="5mY-28-aSt" secondAttribute="leadingMargin" id="wvh-HZ-dwc"/>
+                    <constraint firstItem="JUg-ay-oMu" firstAttribute="leading" secondItem="5mY-28-aSt" secondAttribute="leading" constant="8" id="xtg-XO-96c"/>
+                    <constraint firstAttribute="bottom" secondItem="JUg-ay-oMu" secondAttribute="bottom" constant="4" id="zhn-r3-Kje"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="aAR-QU-ONI"/>
+                        <exclude reference="wvh-HZ-dwc"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="categoryNameLabel" destination="D3b-Q0-DuQ" id="GpV-4A-gs7"/>
+                <outlet property="mainCanvasView" destination="JUg-ay-oMu" id="LEB-k3-gCw"/>
+                <outlet property="numberOfTapsLabel" destination="ilx-HT-rXD" id="Vlr-V1-Vqe"/>
+            </connections>
+            <point key="canvasLocation" x="439" y="196.5"/>
+        </tableViewCell>
+    </objects>
+</document>

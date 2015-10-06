@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BreweryCell" rowHeight="92" id="2hS-o3-XAn" customClass="BreweryViewCell" customModule="growlers" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2hS-o3-XAn" id="wlf-Mf-UaJ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUK-Jc-FSx">
+                        <rect key="frame" x="8" y="4" width="304" height="83.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Crux Fermentation Project" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDR-c0-MQr">
+                                <rect key="frame" x="66" y="16" width="199.5" height="19.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Bend, OR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27B-YM-3XI">
+                                <rect key="frame" x="66" y="35" width="53.5" height="14.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 on Tap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saS-yC-YTU">
+                                <rect key="frame" x="66" y="49" width="45.5" height="13.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="qSl-HO-yfi">
+                                <rect key="frame" x="8" y="16" width="50" height="50"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="1gk-ri-4mt"/>
+                                    <constraint firstAttribute="height" constant="50" id="NHj-B4-ZOq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qSl-HO-yfi" secondAttribute="bottom" constant="16" id="61p-dw-rZm"/>
+                            <constraint firstItem="TDR-c0-MQr" firstAttribute="top" secondItem="qSl-HO-yfi" secondAttribute="top" id="96Z-Nk-W9T"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="saS-yC-YTU" secondAttribute="bottom" constant="20" symbolic="YES" id="D4Y-V6-F97"/>
+                            <constraint firstItem="saS-yC-YTU" firstAttribute="top" secondItem="27B-YM-3XI" secondAttribute="bottom" id="I97-1Y-WKk"/>
+                            <constraint firstItem="TDR-c0-MQr" firstAttribute="leading" secondItem="qSl-HO-yfi" secondAttribute="trailing" constant="8" symbolic="YES" id="KcE-wb-Gab"/>
+                            <constraint firstItem="saS-yC-YTU" firstAttribute="leading" secondItem="TDR-c0-MQr" secondAttribute="leading" id="LfZ-cf-Sqd"/>
+                            <constraint firstItem="qSl-HO-yfi" firstAttribute="leading" secondItem="mUK-Jc-FSx" secondAttribute="leading" constant="8" id="NkX-AR-cT6"/>
+                            <constraint firstItem="saS-yC-YTU" firstAttribute="leading" secondItem="27B-YM-3XI" secondAttribute="leading" id="b74-02-d3r"/>
+                            <constraint firstItem="qSl-HO-yfi" firstAttribute="top" secondItem="mUK-Jc-FSx" secondAttribute="top" constant="16" id="gcx-aG-6vj"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TDR-c0-MQr" secondAttribute="trailing" constant="20" symbolic="YES" id="mbS-t1-TkZ"/>
+                            <constraint firstItem="27B-YM-3XI" firstAttribute="top" secondItem="TDR-c0-MQr" secondAttribute="bottom" id="p4d-N1-ANy"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="mUK-Jc-FSx" secondAttribute="bottom" constant="4" id="7tK-vk-kze"/>
+                    <constraint firstItem="mUK-Jc-FSx" firstAttribute="top" secondItem="wlf-Mf-UaJ" secondAttribute="top" constant="4" id="FfU-V4-TKe"/>
+                    <constraint firstItem="mUK-Jc-FSx" firstAttribute="leading" secondItem="wlf-Mf-UaJ" secondAttribute="leading" constant="8" id="MEP-85-Bcm"/>
+                    <constraint firstAttribute="trailing" secondItem="mUK-Jc-FSx" secondAttribute="trailing" constant="8" id="dDy-mt-FO5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="breweryNameLabel" destination="TDR-c0-MQr" id="GmL-je-NPS"/>
+                <outlet property="homeTownLabel" destination="27B-YM-3XI" id="yv4-SU-Lzx"/>
+                <outlet property="logoImageView" destination="qSl-HO-yfi" id="5Oe-df-irm"/>
+                <outlet property="mainCanvasView" destination="mUK-Jc-FSx" id="oHB-bi-RQb"/>
+                <outlet property="numberOfTapsLabel" destination="saS-yC-YTU" id="gJL-6D-Fnf"/>
+            </connections>
+            <point key="canvasLocation" x="433" y="243"/>
+        </tableViewCell>
+    </objects>
+</document>

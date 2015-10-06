@@ -200,7 +200,7 @@ class QueryManager: NSObject {
 
   //TODO: Look into this method
   func breweriesForTap(tap: Tap, completion: breweriesCompletionHandler) {
-    let breweryQuery = PFQuery(className: "Brewery")
+//    let breweryQuery = PFQuery(className: "Brewery")
     let tapQuery = PFQuery(className: "Tap")
     tapQuery.whereKey("beerId", equalTo: tap.beerId)
     tapQuery.includeKey("brewery")

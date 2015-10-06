@@ -80,6 +80,7 @@ extension BaseTableViewController {
         case .Success(let image):
           cell.displayImage = image
         case .Failure(let data, let error):
+          print(data)
           print(error)
           break
         }

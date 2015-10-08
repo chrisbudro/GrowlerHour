@@ -23,6 +23,10 @@ struct BrowseCell {
 
 class MainBrowseViewController: UITableViewController {
 
+  override func viewDidLoad() {
+    navigationItem.titleView = UIImageView(image: UIImage(named: "GrowlerHour"))
+    
+  }
 }
 
 //MARK: Table View Delegate

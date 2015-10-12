@@ -21,7 +21,6 @@ class BaseTableViewController: UITableViewController {
 
   var browseList: [PFObject] = []
   var queryManager: GenericQueryManager?
-  var isLoading: Bool = false
 
   override func viewDidLoad() {
     super.viewDidLoad()

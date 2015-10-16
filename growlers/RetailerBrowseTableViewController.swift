@@ -18,7 +18,7 @@ class RetailerBrowseTableViewController: BaseTableViewController {
     cellReuseIdentifier = kRetailerCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kRetailerNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     
-    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
 
     queryManager = GenericQueryManager(type: .Retailer)

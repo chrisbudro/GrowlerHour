@@ -17,7 +17,7 @@ class StyleBrowseTableViewController: BaseTableViewController {
     cellReuseIdentifier = kStyleCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kBeerStyleNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     
-    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     
     queryManager = GenericQueryManager(type: .BeerStyle)

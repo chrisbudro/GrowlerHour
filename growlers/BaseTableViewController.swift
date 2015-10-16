@@ -20,7 +20,7 @@ class BaseTableViewController: UITableViewController {
   var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
 
   var queryManager: GenericQueryManager?
-  var dataSource: BaseDataSource?
+  var dataSource: TableViewDataSource?
   var configureCell: ConfigureCellFunction!
 
   override func viewDidLoad() {

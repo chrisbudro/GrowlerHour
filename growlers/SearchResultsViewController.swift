@@ -36,7 +36,7 @@ final class ResultsViewController: BaseTableViewController {
     cellReuseIdentifier = kTapCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
 
-    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
 
     searchBar.delegate = self

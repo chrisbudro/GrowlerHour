@@ -18,7 +18,7 @@ class BreweryBrowseTableViewController: BaseTableViewController {
     cellReuseIdentifier = kBreweryCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kBreweryNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
 
-    dataSource = BaseDataSource(cellReuseIdentifier:cellReuseIdentifier, configureCell: configureCell)
+    dataSource = TableViewDataSource(cellReuseIdentifier:cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     
     queryManager = GenericQueryManager(type: .Brewery)

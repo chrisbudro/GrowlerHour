@@ -17,7 +17,7 @@ final class BreweryFilterTableViewController: BaseFilterTableViewController {
     cellReuseIdentifier = kBreweryCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kBreweryNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
 
-    dataSource = BaseDataSource(cellReuseIdentifier: kBreweryCellReuseIdentifier, configureCell: configureCell)
+    dataSource = TableViewDataSource(cellReuseIdentifier: kBreweryCellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     updateBrowseList()
   }

@@ -17,7 +17,7 @@ class StyleFilterTableViewController: BaseFilterTableViewController {
     cellReuseIdentifier = kStyleCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kBeerStyleNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     
-    dataSource = BaseDataSource(cellReuseIdentifier: kStyleCellReuseIdentifier, configureCell: configureCell)
+    dataSource = TableViewDataSource(cellReuseIdentifier: kStyleCellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     updateBrowseList()
   }

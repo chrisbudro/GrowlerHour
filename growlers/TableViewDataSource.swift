@@ -1,5 +1,5 @@
 //
-//  BaseDataSource.swift
+//  TableViewDataSource.swift
 //  growlers
 //
 //  Created by Chris Budro on 10/8/15.
@@ -11,7 +11,7 @@ import Parse
 
 typealias ConfigureCellFunction = ((cell: UITableViewCell, object: AnyObject) -> Void)
 
-class BaseDataSource : NSObject, UITableViewDataSource {
+class TableViewDataSource : NSObject, UITableViewDataSource {
   var objects = [AnyObject]()
   let cellReuseIdentifier: String
   let configureCell: ConfigureCellFunction

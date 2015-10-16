@@ -17,7 +17,7 @@ class RetailerFilterTableViewController: BaseFilterTableViewController {
     cellReuseIdentifier = kRetailerCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kRetailerNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     
-    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     
     updateBrowseList()

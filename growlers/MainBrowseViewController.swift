@@ -21,7 +21,7 @@ struct BrowseCell {
   static let category = "CategoryCell"
 }
 
-class MainBrowseViewController: UITableViewController {
+final class MainBrowseViewController: UITableViewController {
 
   override func viewDidLoad() {
     navigationItem.titleView = UIImageView(image: UIImage(named: "GrowlerHour"))

@@ -14,8 +14,11 @@ class StyleBrowseTableViewController: BaseTableViewController {
     super.viewDidLoad()
     title = "Styles"
     
-    CellReuseIdentifier = kStyleCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kBeerStyleNibName, bundle: nil), forCellReuseIdentifier: CellReuseIdentifier)
+    cellReuseIdentifier = kStyleCellReuseIdentifier
+    tableView.registerNib(UINib(nibName: kBeerStyleNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+    
+    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    tableView.dataSource = dataSource
     
     queryManager = GenericQueryManager(type: .BeerStyle)
     updateBrowseList()
@@ -26,7 +29,7 @@ class StyleBrowseTableViewController: BaseTableViewController {
 extension StyleBrowseTableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let vc = BeerStyleDetailViewController(style: .Plain)
-    if let beerStyle = browseList[indexPath.row] as? BeerStyle {
+    if let beerStyle = dataSource?.objectAtIndexPath(indexPath) as? BeerStyle {
       vc.beerStyle = beerStyle
     }
     navigationController?.pushViewController(vc, animated: true)

@@ -25,3 +25,9 @@ extension Brewery: PFSubclassing {
     return kBreweryParseClassName
   }
 }
+
+extension Brewery: Filterable {
+  var id: String {
+    return "\(breweryId)"
+  }
+}

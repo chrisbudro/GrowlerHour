@@ -8,7 +8,6 @@
 
 import UIKit
 import Parse
-import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

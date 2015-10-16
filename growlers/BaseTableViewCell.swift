@@ -7,29 +7,11 @@
 //
 
 import UIKit
-import Alamofire
 
-class BaseTableViewCell: UITableViewCell {
-  
-  let kMainCanvasHorizontalPaddingConstraint: CGFloat = 8
-  let kMainCanvasVerticalPaddingConstraint: CGFloat = 4
-  
-  var displayImage: UIImage? {
-    get {
-      return self.imageView?.image
-    }
-    set {
-      self.imageView?.image = newValue
-    }
-  }
-  
-  var imageRequest: Alamofire.Request?
+//class BaseTableViewCell: UITableViewCell {
 
-  func configureCellForObject(object: AnyObject) {
-    
-  }
-  
-  func setBackgroundShadow() {
+//  let kShadowHorizontalPaddingConstraint: CGFloat = 8
+//  let kShadowVerticalPaddingConstraint: CGFloat = 4
 
-  }
-}
+//  func configureCellForObject(object: AnyObject) {}
+//}

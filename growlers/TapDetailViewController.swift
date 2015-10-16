@@ -21,7 +21,6 @@ class TapDetailViewController: UITableViewController {
   var tap: Tap?
   var brewery: Brewery?
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     

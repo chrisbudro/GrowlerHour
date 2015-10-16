@@ -33,3 +33,9 @@ extension Retailer: PFSubclassing {
   }
 }
 
+extension Retailer: Filterable {
+  var id: String {
+    return retailerId
+  }
+}
+

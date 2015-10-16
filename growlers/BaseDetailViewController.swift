@@ -27,7 +27,7 @@ class BaseDetailViewController: BaseTableViewController {
             let alert = ErrorAlertController.alertControllerWithError(error);
             self.presentViewController(alert, animated: true, completion: nil);
           } else if let taps = taps as? [Tap] {
-            self.browseList = taps
+            self.dataSource?.updateObjectsWithArray(taps)
             self.tableView.reloadData()
           }
           self.activityIndicator.stopAnimating()

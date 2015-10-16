@@ -15,6 +15,10 @@ enum SortOrder: String {
   case WhenTapped = "createdAt"
 }
 
+protocol Filterable: class {
+  var id: String {get}
+}
+
 typealias LocationDetails = (name: String, coordinate: CLLocationCoordinate2D)
 
 let kDefaultMinAbvValue = 0
@@ -146,5 +150,23 @@ struct Filter {
       tapIds.removeAtIndex(index)
       isDirty = true
     }
+  }
+  
+  func isInFilter(object: Filterable) -> Bool {
+    var inFilter = false
+    
+    switch object {
+    case is Brewery:
+      let brewery = object as! Brewery
+      //TODO: Refactor brewery and tap ID Types
+      inFilter = breweryIds.indexOf(brewery.breweryId) != nil ? true : false
+    case is Retailer:
+      inFilter = retailerIds.indexOf(object.id) != nil ? true : false
+    case is BeerStyle:
+      inFilter = categoryIds.indexOf(object.id) != nil ? true : false
+    default:
+      break
+    }
+    return inFilter
   }
 }

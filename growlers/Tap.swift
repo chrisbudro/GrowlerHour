@@ -35,6 +35,12 @@ extension Tap: PFSubclassing {
   }
 }
 
+extension Tap: Filterable {
+  var id: String {
+    return "\(beerId)"
+  }
+}
+
 
 
 

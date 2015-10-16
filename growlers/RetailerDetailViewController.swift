@@ -19,8 +19,11 @@ class RetailerDetailViewController: BaseTableViewController {
     
     queryForTaps()
     
-    CellReuseIdentifier = kTapCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: CellReuseIdentifier)
+    cellReuseIdentifier = kTapCellReuseIdentifier
+    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+    
+    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    tableView.dataSource = dataSource
   }
   
   func queryForTaps() {
@@ -31,7 +34,7 @@ class RetailerDetailViewController: BaseTableViewController {
           let alert = ErrorAlertController.alertControllerWithError(error)
           self.presentViewController(alert, animated: true, completion: nil)
         } else if let taps = taps {
-          self.browseList = taps
+          self.dataSource?.updateObjectsWithArray(taps)
           self.tableView.reloadData()
         }
         self.activityIndicator.stopAnimating()

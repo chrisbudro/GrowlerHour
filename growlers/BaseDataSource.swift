@@ -9,50 +9,59 @@
 import Foundation
 import Parse
 
-typealias ConfigureCellFunction = ((cell: UITableViewCell, object: PFObject) -> Void)
+typealias ConfigureCellFunction = ((cell: UITableViewCell, object: AnyObject) -> Void)
 
-class BaseDataSource<T: PFObject> {
-  var objects = [T]()
+class BaseDataSource : NSObject, UITableViewDataSource {
+  var objects = [AnyObject]()
   let cellReuseIdentifier: String
   let configureCell: ConfigureCellFunction
+  
+  var lastIndex: Int {
+    return objects.count - 1
+  }
+  
+  var objectCount: Int {
+    return objects.count
+  }
+  
+  var isEmpty: Bool {
+    return objects.isEmpty
+  }
 
-  init(objects: [T], cellReuseIdentifier: String, configureCell: ConfigureCellFunction) {
-    self.objects = objects
+  init(cellReuseIdentifier: String, configureCell: ConfigureCellFunction) {
     self.cellReuseIdentifier = cellReuseIdentifier
     self.configureCell = configureCell
   }
   
-  func objectAtIndexPath(indexPath: NSIndexPath) -> T {
+  func objectAtIndexPath(indexPath: NSIndexPath) -> AnyObject {
     return objects[indexPath.row]
   }
+  
+  func updateObjectsWithArray(newObjects: [AnyObject]) {
+    objects = newObjects
+  }
+  
+  func addObjects(newObjects: [AnyObject]) {
+    objects += newObjects
+  }
+  
+  func clearObjects() {
+    objects = []
+  }
 
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  @objc func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return objects.count
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  @objc func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
-    let cellObject: T = objects[indexPath.row]
     
-//    cell.configureCellForObject(cellObject)
-    self.configureCell(cell: cell, object: objectAtIndexPath(indexPath))
-    
-    cell.imageRequest?.cancel()
-    
-//    if let imageURL = cellObject[kParseImageUrlKey] as? String {
-//      cell.imageRequest = Alamofire.request(.GET, imageURL).responseImage(completionHandler: {
-//        (request, _, result) in
-//        switch result {
-//        case .Success(let image):
-//          cell.displayImage = image
-//        case .Failure(let data, let error):
-//          print(data)
-//          print(error)
-//          break
-//        }
-//      })
+//    if let cellProtocol = cell as? ConfigurableCell {
+//      cellProtocol.configureCellForObject(objectAtIndexPath(indexPath))
 //    }
-    cell.setBackgroundShadow()
+    
+    configureCell(cell: cell, object: objectAtIndexPath(indexPath))
+
     return cell
   }
 }

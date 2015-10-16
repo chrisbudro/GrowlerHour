@@ -15,8 +15,11 @@ class RetailerBrowseTableViewController: BaseTableViewController {
     
     title = "Retailers"
     
-    CellReuseIdentifier = kRetailerCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kRetailerNibName, bundle: nil), forCellReuseIdentifier: CellReuseIdentifier)
+    cellReuseIdentifier = kRetailerCellReuseIdentifier
+    tableView.registerNib(UINib(nibName: kRetailerNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+    
+    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    tableView.dataSource = dataSource
 
     queryManager = GenericQueryManager(type: .Retailer)
     updateBrowseList()
@@ -25,7 +28,7 @@ class RetailerBrowseTableViewController: BaseTableViewController {
   //MARK: Table View Delegate
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if let retailer = browseList[indexPath.row] as? Retailer {
+    if let retailer = dataSource?.objectAtIndexPath(indexPath) as? Retailer {
       let vc = RetailerDetailViewController()
       vc.retailer = retailer
       navigationController?.pushViewController(vc, animated: true)

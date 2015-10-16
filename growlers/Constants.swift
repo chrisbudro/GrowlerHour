@@ -73,5 +73,9 @@ let kParseRetailersRelationKey = "retailers"
 let kParseBreweryRelationKey = "brewery"
 
 
+//MARK: UI Constants
+
+let kCellShadowHorizontalPaddingConstraint: CGFloat = 8
+let kCellShadowVerticalPaddingConstraint: CGFloat = 4
 
 

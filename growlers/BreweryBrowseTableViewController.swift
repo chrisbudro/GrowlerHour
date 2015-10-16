@@ -15,8 +15,11 @@ class BreweryBrowseTableViewController: BaseTableViewController {
     
     title = "Breweries"
     
-    CellReuseIdentifier = kBreweryCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kBreweryNibName, bundle: nil), forCellReuseIdentifier: CellReuseIdentifier)
+    cellReuseIdentifier = kBreweryCellReuseIdentifier
+    tableView.registerNib(UINib(nibName: kBreweryNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+
+    dataSource = BaseDataSource(cellReuseIdentifier:cellReuseIdentifier, configureCell: configureCell)
+    tableView.dataSource = dataSource
     
     queryManager = GenericQueryManager(type: .Brewery)
     updateBrowseList()
@@ -28,7 +31,7 @@ extension BreweryBrowseTableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
     let vc = BreweryDetailTableViewController(style: .Plain)
-    if let brewery = browseList[indexPath.row] as? Brewery {
+    if let brewery = dataSource?.objectAtIndexPath(indexPath) as? Brewery {
       vc.brewery = brewery
     }
     navigationController?.pushViewController(vc, animated: true)

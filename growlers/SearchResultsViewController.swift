@@ -8,13 +8,11 @@
 
 import Foundation
 
-class ResultsViewController: BaseTableViewController {
+final class ResultsViewController: BaseTableViewController {
   
   let kFilterHeaderHeight: CGFloat = 50
   
   //MARK: Properties
-  var filterHeader: UIView?
-
   var textCleared = false
   let searchBar = UISearchBar()
   
@@ -27,49 +25,44 @@ class ResultsViewController: BaseTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "locationWasUpdated:", name: kLocationUpdatedNotification, object: nil)
+    
     let filterButton = UIBarButtonItem(image: UIImage(named: "sliders"), style: .Plain, target: self, action: "showFiltersWasPressed")
     navigationItem.rightBarButtonItem = filterButton
     
     queryManager = GenericQueryManager(type: .Tap)
     queryManager?.locationFilterMethod = .CurrentLocation
-    
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "locationWasUpdated:", name: kLocationUpdatedNotification, object: nil)
 
-    CellReuseIdentifier = kTapCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: CellReuseIdentifier)
+    cellReuseIdentifier = kTapCellReuseIdentifier
+    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
 
-    tableView.registerNib(UINib(nibName: kFilterHeaderNibName, bundle: nil), forCellReuseIdentifier: kFilterHeaderCellReuseIdentifier)
-    
-    updateBrowseList()
-    
+    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    tableView.dataSource = dataSource
+
     searchBar.delegate = self
     searchBar.placeholder = "Search For Available Beers"
     navigationItem.titleView = searchBar
+    
+    updateBrowseList()
   }
-  
-  
+
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
     tableView.estimatedRowHeight = kEstimatedCellHeight
     tableView.rowHeight = UITableViewAutomaticDimension
-    
   }
   
   //MARK: Helper Methods
 
   override func updateBrowseList() {
     self.textCleared = false
-    if !self.browseList.isEmpty {
+    if let dataSource = dataSource where !dataSource.isEmpty {
       self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .None, animated: false)
     }
     super.updateBrowseList()
   }
 
-  func clearFilterWasPressed() {
-    queryManager?.filter.clearFilter()
-  }
-  
   func showFiltersWasPressed() {
     let filterViewNavController = storyboard?.instantiateViewControllerWithIdentifier("FilterViewNavController") as! UINavigationController
     let filterViewController = filterViewNavController.viewControllers.first as! FilterViewController
@@ -126,7 +119,7 @@ extension ResultsViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     searchBar.resignFirstResponder()
     
-    let tap = browseList[indexPath.row] as! Tap
+    let tap = dataSource?.objectAtIndexPath(indexPath) as! Tap
     let vc = TapDetailViewController()
     vc.tap = tap
     navigationController?.pushViewController(vc, animated: true)

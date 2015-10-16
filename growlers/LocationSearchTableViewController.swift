@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import GoogleMaps
 
 protocol LocationPickerDelegate: class {
   func customLocationWasPicked(locationDetails: LocationDetails)
   func currentLocationWasPicked()
 }
 
-class LocationSearchTableViewController: UITableViewController {
+final class LocationSearchTableViewController: UITableViewController {
   
   let resultsViewController = UITableViewController(style: .Plain)
   var searchController: UISearchController!

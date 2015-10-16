@@ -20,8 +20,11 @@ class BreweryDetailTableViewController: BaseTableViewController {
     //TODO: Fix dangling pointers on brewery.taps and replace queryForTaps() with fetchTaps()
     queryForTaps()
 
-    CellReuseIdentifier = kTapCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: CellReuseIdentifier)
+    cellReuseIdentifier = kTapCellReuseIdentifier
+    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+    
+    dataSource = BaseDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    tableView.dataSource = dataSource
   }
   
   func fetchTaps() {
@@ -31,7 +34,7 @@ class BreweryDetailTableViewController: BaseTableViewController {
           let alert = ErrorAlertController.alertControllerWithError(error);
           self.presentViewController(alert, animated: true, completion: nil);
         } else if let taps = taps as? [Tap] {
-          self.browseList = taps
+          self.dataSource?.updateObjectsWithArray(taps)
           self.tableView.reloadData()
         }
       }
@@ -46,7 +49,7 @@ class BreweryDetailTableViewController: BaseTableViewController {
           let alert = ErrorAlertController.alertControllerWithError(error);
           self.presentViewController(alert, animated: true, completion: nil);
         } else if let taps = taps {
-          self.browseList = taps
+          self.dataSource?.updateObjectsWithArray(taps)
           self.tableView.reloadData()
         }
         self.activityIndicator.stopAnimating()

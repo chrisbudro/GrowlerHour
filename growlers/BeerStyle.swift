@@ -22,3 +22,9 @@ extension BeerStyle: PFSubclassing {
   }
 }
 
+extension BeerStyle: Filterable {
+  var id: String {
+    return categoryId
+  }
+}
+

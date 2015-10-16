@@ -88,7 +88,6 @@
 		4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerFilterTableViewController.swift; sourceTree = "<group>"; };
 		4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreweryDetailHeader.xib; sourceTree = "<group>"; };
 		4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDetailTableViewController.swift; sourceTree = "<group>"; };
-		4C71D1491BAF4C600057962C /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4C71D1501BAF81AE0057962C /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewController.swift; sourceTree = "<group>"; };
 		4C87BFC41AF4576000217591 /* RetailerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerViewCell.swift; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		4CA1721B1BC7223D0082A87D /* BaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; };
 		4CA172241BCD59F40082A87D /* DisplayImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayImageService.swift; sourceTree = "<group>"; };
 		4CA172A61BD03F550082A87D /* ConfigurableCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCellProtocol.swift; sourceTree = "<group>"; };
-		4CA172A81BD080160082A87D /* FilterPickerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPickerDataSource.swift; sourceTree = "<group>"; };
 		4CA172AA1BD0BC500082A87D /* UIView+BackgroundShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+BackgroundShadow.swift"; sourceTree = "<group>"; };
 		4CAB46321BB9CA7D0091EE38 /* BeerStyleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerStyleDetailViewController.swift; sourceTree = "<group>"; };
 		4CAB46341BB9D04C0091EE38 /* RetailerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerDetailViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +163,7 @@
 		4C158A591BACBFA3000AB283 /* Browse View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4CD6F1741B9DFF3300F9DDBD /* MainBrowseViewController.swift */,
 				4C46392B1B9F675100E208F5 /* BreweryBrowseTableViewController.swift */,
 				4C46392D1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift */,
 				4C4639311B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift */,
@@ -192,7 +191,6 @@
 				4C46391F1B9E982900E208F5 /* BaseTableViewController.swift */,
 				4CC1AC9F1BBE44A50082AECE /* SearchResultsViewController.swift */,
 				4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */,
-				4CD6F1741B9DFF3300F9DDBD /* MainBrowseViewController.swift */,
 				4C158A5A1BACBFD9000AB283 /* Filter View Controllers */,
 				4C158A591BACBFA3000AB283 /* Browse View Controllers */,
 				4CAB46361BB9D2D30091EE38 /* Detail View Controllers */,
@@ -232,7 +230,6 @@
 		8E179FF21B056EC900BFD9D8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4CA172A81BD080160082A87D /* FilterPickerDataSource.swift */,
 				4CA172241BCD59F40082A87D /* DisplayImageService.swift */,
 				4CA1721B1BC7223D0082A87D /* BaseDataSource.swift */,
 				4CA172A61BD03F550082A87D /* ConfigurableCellProtocol.swift */,
@@ -245,7 +242,6 @@
 				4CDEAE6B1B05A7050089815E /* BeerStyle.swift */,
 				4CDEAE691B0538380089815E /* Retailer.swift */,
 				4C1D47341AE8E1AD00855816 /* Brewery.swift */,
-				4C71D1491BAF4C600057962C /* Result.swift */,
 				4CDEAE631B03E7470089815E /* Tap.swift */,
 			);
 			name = Model;

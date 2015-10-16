@@ -14,13 +14,17 @@ let kDisplayImageFadeDuration = 0.4
 class DisplayImageService {
   class func setImageView(imageView: UIImageView?, withUrlString urlString: String?, placeholderImage: UIImage?) {
     if let
-      imageView = imageView,
-      urlString = urlString,
-      url = NSURL(string: urlString) {
-        let size = imageView.frame.size
-        let filter = AspectScaledToFillSizeFilter(size: size)
-        
-        imageView.af_setImageWithURL(url, placeholderImage: placeholderImage, filter: filter, imageTransition: .CrossDissolve(kDisplayImageFadeDuration))
+      imageView = imageView {
+        if let urlString = urlString,
+          url = NSURL(string: urlString) {
+            let size = imageView.frame.size
+            let filter = AspectScaledToFillSizeFilter(size: size)
+            
+            imageView.af_setImageWithURL(url, placeholderImage: nil, filter: filter, imageTransition: .CrossDissolve(kDisplayImageFadeDuration))
+        } else {
+          imageView.contentMode = .ScaleAspectFit
+          imageView.image = placeholderImage
+        }
     }
   }
 }

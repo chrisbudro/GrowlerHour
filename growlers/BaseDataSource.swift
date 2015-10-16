@@ -55,11 +55,7 @@ class BaseDataSource : NSObject, UITableViewDataSource {
 
   @objc func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
-    
-//    if let cellProtocol = cell as? ConfigurableCell {
-//      cellProtocol.configureCellForObject(objectAtIndexPath(indexPath))
-//    }
-    
+
     configureCell(cell: cell, object: objectAtIndexPath(indexPath))
 
     return cell

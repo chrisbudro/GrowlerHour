@@ -36,7 +36,9 @@ extension MainBrowseViewController {
     
     switch indexPath.row {
     case BrowseBySelector.Location.rawValue:
-      viewController = NearbyBrowseViewController()
+      break
+      // Unavailable until Parse deletion bug is fixed
+//      viewController = NearbyBrowseViewController()
     case BrowseBySelector.Brewery.rawValue:
       viewController = BreweryBrowseTableViewController(style: .Plain)
     case BrowseBySelector.Style.rawValue:
@@ -44,9 +46,11 @@ extension MainBrowseViewController {
     case BrowseBySelector.Retailer.rawValue:
       viewController = RetailerBrowseTableViewController(style: .Plain)
     default:
-      viewController = BreweryBrowseTableViewController(style: .Plain)
+      break
     }
-
-    navigationController?.pushViewController(viewController!, animated: true)
+    
+    if let viewController = viewController {
+      navigationController?.pushViewController(viewController, animated: true)
+    }
   }
 }

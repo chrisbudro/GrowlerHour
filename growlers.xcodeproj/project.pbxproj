@@ -36,7 +36,6 @@
 		4CAB46381BBC8C0D0091EE38 /* BaseFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB46371BBC8C0D0091EE38 /* BaseFilterTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4CC1ACA01BBE44A50082AECE /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1AC9F1BBE44A50082AECE /* SearchResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4CC1ACA21BBEEC2E0082AECE /* GenericQueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACA11BBEEC2E0082AECE /* GenericQueryManager.swift */; settings = {ASSET_TAGS = (); }; };
-		4CC1ACA31BBEFF5A0082AECE /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C158A571BABDFC9000AB283 /* QueryManager.swift */; settings = {ASSET_TAGS = (); }; };
 		4CC1ACA91BC099000082AECE /* NearbyBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACA81BC099000082AECE /* NearbyBrowseViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4CC1ACAB1BC1C2270082AECE /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACAA1BC1C2270082AECE /* LocationSearchTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4CC1ACAD1BC1CD800082AECE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACAC1BC1CD800082AECE /* Keys.swift */; settings = {ASSET_TAGS = (); }; };
@@ -485,7 +484,6 @@
 				4C4639321B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift in Sources */,
 				4CD6F1751B9DFF3300F9DDBD /* MainBrowseViewController.swift in Sources */,
 				4C87BFC51AF4576000217591 /* RetailerViewCell.swift in Sources */,
-				4CC1ACA31BBEFF5A0082AECE /* QueryManager.swift in Sources */,
 				4CC1ACA91BC099000082AECE /* NearbyBrowseViewController.swift in Sources */,
 				4CC1ACA21BBEEC2E0082AECE /* GenericQueryManager.swift in Sources */,
 				4CC1ACAB1BC1C2270082AECE /* LocationSearchTableViewController.swift in Sources */,

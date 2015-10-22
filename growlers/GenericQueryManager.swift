@@ -51,6 +51,8 @@ class GenericQueryManager {
     self.init(type: type)
     self.filter = filter
   }
+  
+  //MARK: Queries
 
   func results(completion: completionHandler) {
     let query = Tap.query()!
@@ -180,6 +182,41 @@ class GenericQueryManager {
     }
   }
   
+  func tapsForObject(object: PFObject, ofType objectType: ObjectType, completionHandler: (taps: [Tap]?, error: NSError?) -> Void) {
+    let query = Tap.query()!
+    query.limit = kDefaultQueryLimit
+
+    switch objectType {
+    case .Brewery:
+      if let brewery = object as? Brewery {
+        query.whereKey("brewery", equalTo: brewery)
+      }
+    case .BeerStyle:
+      if let beerStyle = object as? BeerStyle {
+        query.whereKey("categories", equalTo: beerStyle)
+      }
+    case .Retailer:
+      if let retailer = object as? Retailer {
+        query.whereKey("retailers", equalTo: retailer)
+      }
+    default:
+      let error = NSError(domain: kGrowlerErrorDomain, code: kGrowlerDefaultErrorCode, userInfo: [NSLocalizedDescriptionKey: "There was an error retrieving taps for this items.  Please try again later"])
+      completionHandler(taps: nil, error: error)
+    }
+    
+    currentQuery = query
+    
+    query.findObjectsInBackgroundWithBlock { (taps, error) -> Void in
+      if let error = error {
+        completionHandler(taps: nil, error: error)
+      } else if let taps = taps as? [Tap] {
+        completionHandler(taps: taps, error: nil)
+      }
+    }
+  }
+  
+  //MARK: Helper Methods
+  
   func distanceFromCurrentLocationToRetailer(retailer: Retailer) -> Double? {
     if let
       lat = self.filter.locationDetails?.coordinate.latitude,
@@ -219,13 +256,18 @@ class GenericQueryManager {
   }
   
   func loadMoreWithSkipCount(skipCount: Int, completion: completionHandler) {
-    currentQuery?.skip = skipCount
-    currentQuery?.findObjectsInBackgroundWithBlock { (results, error) in
-      if let error = error {
-        completion(results: nil, error: error)
-      } else if let results = results {
-        completion(results: results, error: nil)
+    if let currentQuery = currentQuery {
+      currentQuery.skip = skipCount
+      currentQuery.findObjectsInBackgroundWithBlock { (results, error) in
+        if let error = error {
+          completion(results: nil, error: error)
+        } else if let results = results {
+          completion(results: results, error: nil)
+        }
       }
+    } else {
+      let error = NSError(domain: kGrowlerErrorDomain, code: kGrowlerDefaultErrorCode, userInfo: [NSLocalizedDescriptionKey: "There was an error loading more items.  Please try again"])
+      completion(results: nil, error: error)
     }
   }
 }

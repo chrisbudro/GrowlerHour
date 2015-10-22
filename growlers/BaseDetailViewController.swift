@@ -15,24 +15,27 @@ class BaseDetailViewController: BaseTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    fetchTaps()
+    cellReuseIdentifier = kTapCellReuseIdentifier
+    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+    
+    queryManager = GenericQueryManager(type: .Brewery)
+    
+    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+    tableView.dataSource = dataSource
+    
+    queryForTaps()
   }
-  
-  func fetchTaps() {
-    if let parentObject = parentObject {
-      activityIndicator.startAnimating()
-      if let taps = parentObject[kParseTapsRelationKey] as? [Tap] {
-        PFObject.fetchAllIfNeededInBackground(taps) { (taps, error) in
-          if let error = error {
-            let alert = ErrorAlertController.alertControllerWithError(error);
-            self.presentViewController(alert, animated: true, completion: nil);
-          } else if let taps = taps as? [Tap] {
-            self.dataSource?.updateObjectsWithArray(taps)
-            self.tableView.reloadData()
-          }
-          self.activityIndicator.stopAnimating()
-        }
-      }
+
+  func queryForTaps() {}
+}
+
+//MARK: Table View Delegate
+extension BaseDetailViewController {
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    if let tap = dataSource?.objectAtIndexPath(indexPath) as? Tap {
+      let tapDetailVC = TapDetailViewController()
+      tapDetailVC.tap = tap
+      navigationController?.pushViewController(tapDetailVC, animated: true)
     }
   }
 }

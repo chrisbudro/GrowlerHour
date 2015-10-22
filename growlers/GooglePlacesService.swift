@@ -8,8 +8,6 @@
 
 import Foundation
 
-//typealias AutocompleteResult = GMSAutocompletePrediction
-
 class GooglePlacesService {
   class func autocompleteResultsFromSearchTerm(searchTerm: String?, completion: (predictions: [GMSAutocompletePrediction]?, error: NSError?) -> Void) {
     let placesClient = GMSPlacesClient.sharedClient()

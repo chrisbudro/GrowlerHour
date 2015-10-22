@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RetailerDetailViewController: BaseTableViewController {
+class RetailerDetailViewController: BaseDetailViewController {
   
   var retailer: Retailer?
   
@@ -17,28 +17,32 @@ class RetailerDetailViewController: BaseTableViewController {
     
     title = retailer?.retailerName
     
-    queryForTaps()
-    
-    cellReuseIdentifier = kTapCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-    
-    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
-    tableView.dataSource = dataSource
+//    cellReuseIdentifier = kTapCellReuseIdentifier
+//    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+//    
+//    queryManager = GenericQueryManager(type: .Retailer)
+//    
+//    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+//    tableView.dataSource = dataSource
+//    
+//    queryForTaps()
   }
   
-  func queryForTaps() {
-    if let retailer = retailer {
-      activityIndicator.startAnimating()
-      QueryManager.shared.tapsForObject(retailer, ofType: .Retailer) { (taps, error) in
-        if let error = error {
-          let alert = ErrorAlertController.alertControllerWithError(error)
-          self.presentViewController(alert, animated: true, completion: nil)
-        } else if let taps = taps {
-          self.dataSource?.updateObjectsWithArray(taps)
-          self.tableView.reloadData()
+  override func queryForTaps() {
+    if let
+      retailer = retailer,
+      queryManager = queryManager {
+        activityIndicator.startAnimating()
+        queryManager.tapsForObject(retailer, ofType: .Retailer) { (taps, error) in
+          if let error = error {
+            let alert = ErrorAlertController.alertControllerWithError(error)
+            self.presentViewController(alert, animated: true, completion: nil)
+          } else if let taps = taps {
+            self.dataSource?.updateObjectsWithArray(taps)
+            self.tableView.reloadData()
+          }
+          self.activityIndicator.stopAnimating()
         }
-        self.activityIndicator.stopAnimating()
-      }
     }
   }
 }

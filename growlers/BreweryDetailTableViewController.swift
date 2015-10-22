@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class BreweryDetailTableViewController: BaseTableViewController {
+class BreweryDetailTableViewController: BaseDetailViewController {
   
   var brewery: Brewery?
   
@@ -17,47 +17,33 @@ class BreweryDetailTableViewController: BaseTableViewController {
     super.viewDidLoad()
     
     title = brewery?.breweryName
-    //TODO: Fix dangling pointers on brewery.taps and replace queryForTaps() with fetchTaps()
-    queryForTaps()
-
-    cellReuseIdentifier = kTapCellReuseIdentifier
-    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     
-    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
-    tableView.dataSource = dataSource
+//    cellReuseIdentifier = kTapCellReuseIdentifier
+//    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+//    
+//    queryManager = GenericQueryManager(type: .Brewery)
+//    
+//    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
+//    tableView.dataSource = dataSource
+//    
+//    queryForTaps()
   }
   
-  func fetchTaps() {
-    if let brewery = brewery {
-      PFObject.fetchAllIfNeededInBackground(brewery.taps) { (taps, error) in
-        if let error = error {
-          let alert = ErrorAlertController.alertControllerWithError(error);
-          self.presentViewController(alert, animated: true, completion: nil);
-        } else if let taps = taps as? [Tap] {
-          self.dataSource?.updateObjectsWithArray(taps)
-          self.tableView.reloadData()
+  override func queryForTaps() {
+    if let
+      brewery = brewery,
+      queryManager = queryManager {
+        activityIndicator.startAnimating()
+        queryManager.tapsForObject(brewery, ofType: .Brewery) { (taps, error) -> Void in
+          if let error = error {
+            let alert = ErrorAlertController.alertControllerWithError(error);
+            self.presentViewController(alert, animated: true, completion: nil);
+          } else if let taps = taps {
+            self.dataSource?.updateObjectsWithArray(taps)
+            self.tableView.reloadData()
+          }
+          self.activityIndicator.stopAnimating()
         }
-      }
     }
   }
-  
-  func queryForTaps() {
-    activityIndicator.startAnimating()
-    if let brewery = brewery {
-      QueryManager.shared.tapsForObject(brewery, ofType: .Brewery) { (taps, error) -> Void in
-        if let error = error {
-          let alert = ErrorAlertController.alertControllerWithError(error);
-          self.presentViewController(alert, animated: true, completion: nil);
-        } else if let taps = taps {
-          self.dataSource?.updateObjectsWithArray(taps)
-          self.tableView.reloadData()
-        }
-        self.activityIndicator.stopAnimating()
-      }
-    }
-  }
-}
-
-extension BreweryDetailTableViewController {
-
 }

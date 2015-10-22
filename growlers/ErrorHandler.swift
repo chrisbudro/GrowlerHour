@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 class ErrorHandler {
   class func errorWithMessage(message: String) -> NSError {
     let userInfo = [NSLocalizedDescriptionKey: message]

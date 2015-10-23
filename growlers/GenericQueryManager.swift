@@ -29,6 +29,7 @@ class GenericQueryManager {
   
   let kDefaultQueryLimit: Int = 50
   let kDefaultQueryMaxDistance: Double = 50
+  let kDefaultLocationDetails: LocationDetails = (name: "Portland", coordinate: CLLocationCoordinate2DMake(45.523193, -122.672053))
   
   var filter = Filter() {
     didSet {
@@ -130,8 +131,9 @@ class GenericQueryManager {
       } else {
         dispatch_group_enter(geoQueryGroup)
         LocationService.shared.startMonitoringLocation { (locationDetails, error) -> Void in
-          if let error = error {
-            completion(results: nil, error: error)
+          if let _ = error {
+            self.filter.locationDetails = self.kDefaultLocationDetails
+            prepareRetailerQuery()
           } else if let locationDetails = locationDetails {
             self.filter.locationDetails = locationDetails
             prepareRetailerQuery()

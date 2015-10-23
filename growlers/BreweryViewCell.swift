@@ -41,8 +41,8 @@ extension BreweryViewCell: ConfigurableCell {
           homeTownLabel.text = "\(city)\(separator)\(state)"
       }
       
-      let beerOrBeers = brewery.taps.count == 1 ? "Beer" : "Beers"
-      numberOfTapsLabel.text = "\(brewery.taps.count) \(beerOrBeers) on Tap"
+//      let beerOrBeers = brewery.taps.count == 1 ? "Beer" : "Beers"
+//      numberOfTapsLabel.text = "\(brewery.taps.count) \(beerOrBeers) on Tap"
       
       DisplayImageService.setImageView(logoImageView, withUrlString: brewery.imageUrl, placeholderImage: UIImage(named: "growlerIcon"))
     }

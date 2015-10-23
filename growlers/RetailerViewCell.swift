@@ -38,11 +38,11 @@ extension RetailerViewCell: ConfigurableCell {
     if let retailer = object as? Retailer {
       retailerNameLabel.text = retailer.retailerName
       retailerAddressLabel.text = "\(retailer.streetAddress), \(retailer.city)"
-      let beerOrBeers = retailer.taps.count == 1 ? "Beer" : "Beers"
-      numberOfTapsLabel.text = "\(retailer.taps.count) \(beerOrBeers) on Tap"
+//      let beerOrBeers = retailer.taps.count == 1 ? "Beer" : "Beers"
+//      numberOfTapsLabel.text = "\(retailer.taps.count) \(beerOrBeers) on Tap"
       distanceLabel.text = retailer.distanceFromLocation != nil ? "\(retailer.distanceFromLocation!) mi" : ""
       
-      DisplayImageService.setImageView(retailerImageView, withUrlString: retailer.imageUrl, placeholderImage: UIImage(named: "growlerIcon"))
+      DisplayImageService.setImageView(retailerImageView, withUrlString: retailer.photo?.url, placeholderImage: UIImage(named: "growlerIcon"))
     }
   }
 }

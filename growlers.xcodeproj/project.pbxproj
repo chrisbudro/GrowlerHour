@@ -71,7 +71,6 @@
 
 /* Begin PBXFileReference section */
 		4C158A551BABCF4C000AB283 /* Pods_growlers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_growlers.framework; path = "build/Debug-iphoneos/Pods_growlers.framework"; sourceTree = "<group>"; };
-		4C158A571BABDFC9000AB283 /* QueryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
 		4C1D46E51AE71D4F00855816 /* BeerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerViewCell.swift; sourceTree = "<group>"; };
 		4C1D47321AE84FE200855816 /* BreweryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryViewCell.swift; sourceTree = "<group>"; };
 		4C1D47341AE8E1AD00855816 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
@@ -233,7 +232,6 @@
 				4CA1721B1BC7223D0082A87D /* TableViewDataSource.swift */,
 				4CA172A61BD03F550082A87D /* ConfigurableCellProtocol.swift */,
 				4CC1ACAE1BC22FC50082AECE /* GooglePlacesService.swift */,
-				4C158A571BABDFC9000AB283 /* QueryManager.swift */,
 				4CC1ACA11BBEEC2E0082AECE /* GenericQueryManager.swift */,
 				4C71D1501BAF81AE0057962C /* LocationService.swift */,
 				4CC1ACB01BC23E530082AECE /* ErrorHandler.swift */,

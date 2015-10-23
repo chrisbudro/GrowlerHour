@@ -19,6 +19,7 @@ class Retailer: PFObject {
   @NSManaged var state: String
   @NSManaged var coordinates: PFGeoPoint
   @NSManaged var imageUrl: String?
+  @NSManaged var photo: PFFile?
   var distanceFromLocation: Double?
   
   var coreLocation: CLLocation {

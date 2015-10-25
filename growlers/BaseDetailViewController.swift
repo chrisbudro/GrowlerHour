@@ -18,7 +18,7 @@ class BaseDetailViewController: BaseTableViewController {
     cellReuseIdentifier = kTapCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
     
-    queryManager = GenericQueryManager(type: .Brewery)
+//    queryManager = GenericQueryManager(type: .Brewery)
     
     dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource

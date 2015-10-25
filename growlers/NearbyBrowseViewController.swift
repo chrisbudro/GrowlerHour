@@ -54,25 +54,26 @@ class NearbyBrowseViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let retailer = retailerList[section]
-    return retailer.taps.count
+//    return retailer.taps.count
+    return 0
   }
   
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kTapCellReuseIdentifier, forIndexPath: indexPath) as! BeerViewCell
-    let retailer = retailerList[indexPath.section]
-    let tap = retailer.taps[indexPath.row]
-    if tap.isDataAvailable() {
-      cell.configureCellForObject(tap)
-    } else {
-      tap.fetchIfNeededInBackgroundWithBlock { (tap, error) in
-        if let error = error {
-          print("error: \(error.localizedDescription)")
-        } else if let tap = tap as? Tap {
-          cell.configureCellForObject(tap)
-        }
-      }
-    }
+//    let retailer = retailerList[indexPath.section]
+//    let tap = retailer.taps[indexPath.row]
+//    if tap.isDataAvailable() {
+//      cell.configureCellForObject(tap)
+//    } else {
+//      tap.fetchIfNeededInBackgroundWithBlock { (tap, error) in
+//        if let error = error {
+//          print("error: \(error.localizedDescription)")
+//        } else if let tap = tap as? Tap {
+//          cell.configureCellForObject(tap)
+//        }
+//      }
+//    }
     return cell
   }
   

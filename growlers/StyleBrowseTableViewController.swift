@@ -31,6 +31,10 @@ extension StyleBrowseTableViewController {
     let vc = BeerStyleDetailViewController(style: .Plain)
     if let beerStyle = dataSource?.objectAtIndexPath(indexPath) as? BeerStyle {
       vc.beerStyle = beerStyle
+      if let queryManager = queryManager {
+        let styleQueryManager = GenericQueryManager(type: .Tap, filter: queryManager.filter)
+        vc.queryManager = styleQueryManager
+      }
     }
     navigationController?.pushViewController(vc, animated: true)
   }

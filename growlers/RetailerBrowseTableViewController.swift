@@ -31,6 +31,10 @@ class RetailerBrowseTableViewController: BaseBrowseViewController {
     if let retailer = dataSource?.objectAtIndexPath(indexPath) as? Retailer {
       let vc = RetailerDetailViewController()
       vc.retailer = retailer
+      if let queryManager = queryManager {
+        let retailerQueryManager = GenericQueryManager(type: .Tap, filter: queryManager.filter)
+        vc.queryManager = retailerQueryManager
+      }
       navigationController?.pushViewController(vc, animated: true)
     }
   }

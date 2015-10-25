@@ -60,6 +60,10 @@ class TapDetailViewController: UITableViewController {
         dispatch_group_leave(loadGroup)
       }
       
+      
+      
+      
+    
       dispatch_group_notify(loadGroup, dispatch_get_main_queue()) {
         if let loadError = loadError {
           let alert = ErrorAlertController.alertControllerWithError(loadError)

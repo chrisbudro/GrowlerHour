@@ -13,7 +13,7 @@ class Retailer: PFObject {
   
   @NSManaged var retailerName: String
   @NSManaged var retailerId: String
-  @NSManaged var taps: [Tap]
+//  @NSManaged var taps: [Tap]
   @NSManaged var streetAddress: String
   @NSManaged var city: String
   @NSManaged var state: String

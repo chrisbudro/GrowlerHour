@@ -152,15 +152,7 @@ struct Filter {
       isDirty = true
     }
   }
-  
-  mutating func setLocationDetails() {
-    retrieveLocationDetails { (locationDetails, error) -> Void in
-      if let locationDetails = locationDetails {
-        self.locationDetails = locationDetails
-      }
-    }
-  }
-  
+
   mutating func retrieveLocationDetails(completion: (locationDetails: LocationDetails?, error: NSError?) -> Void) {
     if let locationDetails = locationDetails {
       completion(locationDetails: locationDetails, error: nil)

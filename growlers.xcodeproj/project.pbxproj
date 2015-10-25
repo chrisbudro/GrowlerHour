@@ -27,6 +27,7 @@
 		4C6B77F81BDAF41400E42793 /* SimulatorCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B77F71BDAF41400E42793 /* SimulatorCheck.swift */; settings = {ASSET_TAGS = (); }; };
 		4C71D1511BAF81AE0057962C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1501BAF81AE0057962C /* LocationService.swift */; settings = {ASSET_TAGS = (); }; };
 		4C71D1531BAF84F30057962C /* ErrorAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4C7AC4291BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC4281BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib */; settings = {ASSET_TAGS = (); }; };
 		4C87BFC51AF4576000217591 /* RetailerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BFC41AF4576000217591 /* RetailerViewCell.swift */; };
 		4C90251E1B311A5A0034CC9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90251D1B311A5A0034CC9D /* Constants.swift */; };
 		4CA1721C1BC7223D0082A87D /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1721B1BC7223D0082A87D /* TableViewDataSource.swift */; settings = {ASSET_TAGS = (); }; };
@@ -92,6 +93,7 @@
 		4C6B77F71BDAF41400E42793 /* SimulatorCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorCheck.swift; sourceTree = "<group>"; };
 		4C71D1501BAF81AE0057962C /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewController.swift; sourceTree = "<group>"; };
+		4C7AC4281BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ByLocationBrowseCell.xib; sourceTree = "<group>"; };
 		4C87BFC41AF4576000217591 /* RetailerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerViewCell.swift; sourceTree = "<group>"; };
 		4C87BFC81AF4738900217591 /* growlers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "growlers-Bridging-Header.h"; sourceTree = "<group>"; };
 		4C90251D1B311A5A0034CC9D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		8E4E69BE1AD8684D00C7A071 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C7AC4281BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib */,
 				8E4E69BF1AD8684D00C7A071 /* Info.plist */,
 				4C87BFC81AF4738900217591 /* growlers-Bridging-Header.h */,
 				4CA172AA1BD0BC500082A87D /* UIView+BackgroundShadow.swift */,
@@ -404,6 +407,7 @@
 				4C46393E1B9FE39F00E208F5 /* BreweryDetailHeader.xib in Resources */,
 				4CDEAE5C1B03C5C90089815E /* BeerStyleViewCell.xib in Resources */,
 				4CDEAE5A1B03C4760089815E /* BreweryViewCell.xib in Resources */,
+				4C7AC4291BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib in Resources */,
 				8E4E69C61AD8684D00C7A071 /* Main.storyboard in Resources */,
 				8E4E69CB1AD8684D00C7A071 /* LaunchScreen.xib in Resources */,
 				8E4E69C81AD8684D00C7A071 /* Images.xcassets in Resources */,

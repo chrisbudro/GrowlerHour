@@ -30,12 +30,15 @@ class BeerViewCell: UITableViewCell {
     beerImageView.af_cancelImageRequest()
     beerImageView.image = nil
   }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    mainCanvasView.setBackgroundShadow()
+  }
 }
 
 extension BeerViewCell: ConfigurableCell {
   func configureCellForObject(object: AnyObject) {
-    mainCanvasView.setBackgroundShadow()
-    
     if let tap = object as? Tap {
       
       breweryLabel.text = tap.breweryName

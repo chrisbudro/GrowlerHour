@@ -12,6 +12,10 @@ extension UIView {
     func setBackgroundShadow() {
       //Workaround while trying to solve issue with mainCanvasView sizing bug
 //      let bounds = CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y, width: self.bounds.width - (kMainCanvasHorizontalPaddingConstraint * 2), height: self.bounds.height - (kMainCanvasVerticalPaddingConstraint * 2))
+      
+      self.setNeedsLayout()
+      self.layoutIfNeeded()
+      
       let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 2)
       self.layer.shadowPath = shadowPath.CGPath
       self.layer.shadowColor = UIColor.darkGrayColor().CGColor

@@ -123,6 +123,9 @@ extension ResultsViewController {
     let tap = dataSource?.objectAtIndexPath(indexPath) as! Tap
     let vc = TapDetailViewController()
     vc.tap = tap
+    if let queryManager = queryManager {
+      vc.filter = queryManager.filter
+    }
     navigationController?.pushViewController(vc, animated: true)
   }
 }

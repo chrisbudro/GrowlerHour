@@ -35,6 +35,9 @@ extension BaseDetailViewController {
     if let tap = dataSource?.objectAtIndexPath(indexPath) as? Tap {
       let tapDetailVC = TapDetailViewController()
       tapDetailVC.tap = tap
+      if let queryManager = queryManager {
+        tapDetailVC.filter = queryManager.filter
+      }
       navigationController?.pushViewController(tapDetailVC, animated: true)
     }
   }

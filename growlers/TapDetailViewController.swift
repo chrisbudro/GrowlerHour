@@ -21,6 +21,8 @@ class TapDetailViewController: UITableViewController {
   var tap: Tap?
   var brewery: Brewery?
   
+  var filter: Filter!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -59,11 +61,7 @@ class TapDetailViewController: UITableViewController {
         }
         dispatch_group_leave(loadGroup)
       }
-      
-      
-      
-      
-    
+
       dispatch_group_notify(loadGroup, dispatch_get_main_queue()) {
         if let loadError = loadError {
           let alert = ErrorAlertController.alertControllerWithError(loadError)
@@ -149,14 +147,18 @@ class TapDetailViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let queryManager = GenericQueryManager(type: .Tap, filter: filter)
+    
     if indexPath.section == kBrewerySection {
       let vc = BreweryDetailTableViewController()
       vc.brewery = brewery
+      vc.queryManager = queryManager
       navigationController?.pushViewController(vc, animated: true)
     }
     else if indexPath.section == kRetailerSection {
       let vc = RetailerDetailViewController()
       vc.retailer = retailerList[indexPath.row]
+      vc.queryManager = queryManager
       navigationController?.pushViewController(vc, animated: true)
     }
   }

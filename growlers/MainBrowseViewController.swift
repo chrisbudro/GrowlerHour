@@ -9,10 +9,10 @@
 import UIKit
 
 enum BrowseBySelector: Int {
-  case Location = 0
-  case Brewery = 1
-  case Style = 2
-  case Retailer = 3
+  case Brewery = 0
+  case Style = 1
+  case Retailer = 2
+  case PoweredBy = 3
 }
 
 struct BrowseCell {
@@ -23,10 +23,13 @@ struct BrowseCell {
 
 final class MainBrowseViewController: UITableViewController {
   
+  let numberOfCells: CGFloat = 3
+  let kPoweredByCellHeight: CGFloat = 60
+  
   var filter = Filter()
 
   override func viewDidLoad() {
-    
+
     filter.retrieveLocationDetails { (locationDetails, error) -> Void in
       self.filter.locationDetails = locationDetails
     }
@@ -51,10 +54,6 @@ extension MainBrowseViewController {
     var viewController: BaseTableViewController?
     
     switch indexPath.row {
-    case BrowseBySelector.Location.rawValue:
-      break
-      // Unavailable until Parse deletion bug is fixed
-//      viewController = NearbyBrowseViewController()
     case BrowseBySelector.Brewery.rawValue:
       viewController = BreweryBrowseTableViewController(style: .Plain)
       let queryManager = GenericQueryManager(type: .Brewery, filter: filter)
@@ -75,7 +74,23 @@ extension MainBrowseViewController {
       navigationController?.pushViewController(viewController, animated: true)
     }
   }
+  
+  override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    if indexPath.row == BrowseBySelector.PoweredBy.rawValue {
+      return false
+    }
+    return true
+  }
+  
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    if indexPath.row == BrowseBySelector.PoweredBy.rawValue {
+      return kPoweredByCellHeight
+    }
+    return view.bounds.height / numberOfCells
+  }
 }
+
+
 
 //MARK: Filter Delegate
 extension MainBrowseViewController: FilterDelegate {

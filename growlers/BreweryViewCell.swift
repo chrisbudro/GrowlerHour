@@ -26,12 +26,15 @@ class BreweryViewCell: UITableViewCell {
     logoImageView.af_cancelImageRequest()
     logoImageView.image = nil
   }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    mainCanvasView.setBackgroundShadow()
+  }
 }
 
 extension BreweryViewCell: ConfigurableCell {
   func configureCellForObject(object: AnyObject) {
-    mainCanvasView.setBackgroundShadow()
-    
     if let brewery = object as? Brewery {
       breweryNameLabel.text = brewery.breweryName
       if let

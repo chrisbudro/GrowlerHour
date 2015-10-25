@@ -19,6 +19,11 @@ class RetailerViewCell: UITableViewCell {
   @IBOutlet weak var retailerImageView: UIImageView!
   @IBOutlet weak var mainCanvasView: UIView!
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    mainCanvasView.setBackgroundShadow()
+  }
+  
   override func prepareForReuse() {
     super.prepareForReuse()
     
@@ -33,7 +38,6 @@ class RetailerViewCell: UITableViewCell {
 
 extension RetailerViewCell: ConfigurableCell {
   func configureCellForObject(object: AnyObject) {
-    mainCanvasView.setBackgroundShadow()
     
     if let retailer = object as? Retailer {
       retailerNameLabel.text = retailer.retailerName

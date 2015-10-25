@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RetailerBrowseTableViewController: BaseTableViewController {
+class RetailerBrowseTableViewController: BaseBrowseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,7 +21,7 @@ class RetailerBrowseTableViewController: BaseTableViewController {
     dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
 
-    queryManager = GenericQueryManager(type: .Retailer)
+//    queryManager = GenericQueryManager(type: .Retailer)
     updateBrowseList()
   }
   

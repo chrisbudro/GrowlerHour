@@ -28,6 +28,7 @@ let kDefaultMinIbuValue = 0
 let kDefaultMaxIbuValue = 3000
 
 let kDefaultMaxSearchDistance: Double = 50
+let kDefaultLocationDetails: LocationDetails = (name: "Portland", coordinate: CLLocationCoordinate2DMake(45.523193, -122.672053))
 
 struct Filter {
   var breweryIds: [Int]
@@ -149,6 +150,44 @@ struct Filter {
     if let index = tapIds.indexOf(tap.beerId) {
       tapIds.removeAtIndex(index)
       isDirty = true
+    }
+  }
+  
+  mutating func setLocationDetails() {
+    retrieveLocationDetails { (locationDetails, error) -> Void in
+      if let locationDetails = locationDetails {
+        self.locationDetails = locationDetails
+      }
+    }
+  }
+  
+  mutating func retrieveLocationDetails(completion: (locationDetails: LocationDetails?, error: NSError?) -> Void) {
+    if let locationDetails = locationDetails {
+      completion(locationDetails: locationDetails, error: nil)
+    } else if let currentLocationDetails = LocationService.shared.locationDetails {
+      locationDetails = currentLocationDetails
+      completion(locationDetails: locationDetails, error: nil)
+    } else {
+      LocationService.shared.startMonitoringLocation { (newLocationDetails, error) -> Void in
+        if let _ = error {
+          self.locationDetails = kDefaultLocationDetails
+        } else if let newLocationDetails = newLocationDetails {
+          self.locationDetails = newLocationDetails
+        }
+        completion(locationDetails: self.locationDetails, error: nil)
+      }
+    }
+  }
+  
+  mutating func locationGeoPoint(completion: (locationGeoPoint: PFGeoPoint?, error: NSError?) -> Void) {
+    retrieveLocationDetails { (locationDetails, error) -> Void in
+      if let error = error {
+        completion(locationGeoPoint: nil, error: error)
+      } else if let locationDetails = locationDetails {
+        let coordinate = locationDetails.coordinate
+        let geoPoint = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        completion(locationGeoPoint: geoPoint, error: nil)
+      }
     }
   }
   

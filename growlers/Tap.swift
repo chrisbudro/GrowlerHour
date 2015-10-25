@@ -24,7 +24,7 @@ class Tap: PFObject {
   @NSManaged var abv : Double
   @NSManaged var ibu : Int
   @NSManaged var beerDescription: String?
-  @NSManaged var beerLabel: String?
+  @NSManaged var imageUrl: String?
   @NSManaged var dateCreated: NSDate?
   
 }

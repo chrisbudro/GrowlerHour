@@ -31,8 +31,7 @@ final class ResultsViewController: BaseTableViewController {
     navigationItem.rightBarButtonItem = filterButton
     
     queryManager = GenericQueryManager(type: .Tap)
-    queryManager?.locationFilterMethod = .CurrentLocation
-
+    
     cellReuseIdentifier = kTapCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
 
@@ -72,14 +71,16 @@ final class ResultsViewController: BaseTableViewController {
   }
   
   func locationWasUpdated(notification: NSNotification) {
-    switch queryManager!.locationFilterMethod {
-    case .CurrentLocation:
-     let userInfo = notification.userInfo!
-      let _ = userInfo[kNewLocationKey]
-      updateBrowseList()
-    default:
-      break
-    }
+    updateBrowseList()
+    
+//    switch queryManager!.locationFilterMethod {
+//    case .CurrentLocation:
+//     let userInfo = notification.userInfo!
+//      let _ = userInfo[kNewLocationKey]
+//      updateBrowseList()
+//    default:
+//      break
+//    }
   }
 }
 

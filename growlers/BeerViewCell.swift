@@ -46,7 +46,7 @@ extension BeerViewCell: ConfigurableCell {
       abvTextLabel.text = tap.abv != 0 ? "\(tap.abv) ABV" : ""
       ibuTextLabel.text = tap.ibu != 0 ? "\(separator)\(tap.ibu) IBU" : ""
       
-      DisplayImageService.setImageView(beerImageView, withUrlString: tap.beerLabel, placeholderImage: UIImage(named: "growlerIcon"))
+      DisplayImageService.setImageView(beerImageView, withUrlString: tap.imageUrl, placeholderImage: UIImage(named: "growlerIcon"))
     }
   }
 }

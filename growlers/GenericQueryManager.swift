@@ -17,11 +17,11 @@ enum ObjectType {
   case Tap
 }
 
-enum LocationFilterMethod {
-  case CurrentLocation
-  case CustomLocation(LocationDetails)
-  case None
-}
+//enum LocationFilterMethod {
+//  case CurrentLocation
+//  case CustomLocation(LocationDetails)
+//  case None
+//}
 
 class GenericQueryManager {
   let type: ObjectType
@@ -29,7 +29,7 @@ class GenericQueryManager {
   
   let kDefaultQueryLimit: Int = 50
   let kDefaultQueryMaxDistance: Double = 50
-  let kDefaultLocationDetails: LocationDetails = (name: "Portland", coordinate: CLLocationCoordinate2DMake(45.523193, -122.672053))
+
   
   var filter = Filter() {
     didSet {
@@ -37,8 +37,8 @@ class GenericQueryManager {
     }
   }
   var isDirty = true
-  var locationFilterMethod: LocationFilterMethod = .None
-  var currentLocation: CLLocation?
+//  var locationFilterMethod: LocationFilterMethod = .None
+//  var currentLocation: CLLocation?
   var currentGeoPoint: PFGeoPoint?
   var currentQuery: PFQuery?
   let locationService = LocationService.shared
@@ -67,13 +67,6 @@ class GenericQueryManager {
     query.whereKey("abv", greaterThanOrEqualTo: filter.abvRange.min)
     query.whereKey("abv", lessThanOrEqualTo: filter.abvRange.max)
     
-//    if !filter.retailerIds.isEmpty && type != .Retailer {
-//      let retailerQuery = Retailer.query()!
-//      retailerQuery.whereKey("retailerId", containedIn: filter.retailerIds)
-//
-//      query.whereKey("retailers", matchesQuery: retailerQuery)
-//    }
-    
     if !filter.breweryIds.isEmpty && type != .Brewery {
       let breweryQuery = Brewery.query()!
       breweryQuery.whereKey("breweryId", containedIn: Array(filter.breweryIds))
@@ -100,90 +93,115 @@ class GenericQueryManager {
       query.whereKey("categories", notEqualTo: PFObject(withoutDataWithClassName: "Categories", objectId: "Ram0dmMRPd"))
     }
 
-    let geoQueryGroup = dispatch_group_create()
+//    let geoQueryGroup = dispatch_group_create()
+//    
+//    func prepareRetailerQuery() {
+//      if let locationDetails = filter.locationDetails {
+//        let latitude = locationDetails.coordinate.latitude
+//        let longitude = locationDetails.coordinate.longitude
+//        self.currentGeoPoint = PFGeoPoint(latitude: latitude, longitude: longitude)
+//      }
+//      let retailerQuery = Retailer.query()!
+//      if let currentGeoPoint = currentGeoPoint {
+//        retailerQuery.whereKey("coordinates", nearGeoPoint: currentGeoPoint, withinMiles: self.filter.maxDistance)
+//      }
+//      if !filter.retailerIds.isEmpty && type != .Retailer {
+//        retailerQuery.whereKey("retailerId", containedIn: filter.retailerIds)
+//      }
+//      query.whereKey("retailers", matchesQuery: retailerQuery)
+//      dispatch_group_leave(geoQueryGroup)
+//    }
+//    
+//    if let _ = filter.locationDetails {
+//      dispatch_group_enter(geoQueryGroup)
+//      prepareRetailerQuery()
+//    } else if let currentLocationDetails = LocationService.shared.locationDetails {
+//      dispatch_group_enter(geoQueryGroup)
+//      self.filter.locationDetails = currentLocationDetails
+//      prepareRetailerQuery()
+//    } else {
+//      dispatch_group_enter(geoQueryGroup)
+//      LocationService.shared.startMonitoringLocation { (locationDetails, error) -> Void in
+//        if let _ = error {
+//          self.filter.locationDetails = kDefaultLocationDetails
+//          prepareRetailerQuery()
+//        } else if let locationDetails = locationDetails {
+//          self.filter.locationDetails = locationDetails
+//          prepareRetailerQuery()
+//        }
+//      }
+//    }
     
-    func prepareRetailerQuery() {
-      if let locationDetails = filter.locationDetails {
-        let latitude = locationDetails.coordinate.latitude
-        let longitude = locationDetails.coordinate.longitude
-        self.currentGeoPoint = PFGeoPoint(latitude: latitude, longitude: longitude)
-      }
-      let retailerQuery = Retailer.query()!
-      if let currentGeoPoint = currentGeoPoint {
-        retailerQuery.whereKey("coordinates", nearGeoPoint: currentGeoPoint, withinMiles: self.filter.maxDistance)
-      }
-      if !filter.retailerIds.isEmpty && type != .Retailer {
-        retailerQuery.whereKey("retailerId", containedIn: filter.retailerIds)
-      }
-      query.whereKey("retailers", matchesQuery: retailerQuery)
-      dispatch_group_leave(geoQueryGroup)
-    }
-    
-    switch locationFilterMethod {
-    case .CurrentLocation:
-      if let _ = self.filter.locationDetails {
-        dispatch_group_enter(geoQueryGroup)
-        prepareRetailerQuery()
-      } else if let currentLocationDetails = LocationService.shared.locationDetails {
-        dispatch_group_enter(geoQueryGroup)
-        self.filter.locationDetails = currentLocationDetails
-        prepareRetailerQuery()
-      } else {
-        dispatch_group_enter(geoQueryGroup)
-        LocationService.shared.startMonitoringLocation { (locationDetails, error) -> Void in
-          if let _ = error {
-            self.filter.locationDetails = self.kDefaultLocationDetails
-            prepareRetailerQuery()
-          } else if let locationDetails = locationDetails {
-            self.filter.locationDetails = locationDetails
-            prepareRetailerQuery()
-          }
-        }
-      }
-    case .CustomLocation:
-      dispatch_group_enter(geoQueryGroup)
-      if let _ = filter.locationDetails {
-        prepareRetailerQuery()
-      } else {
-        let error = ErrorHandler.errorWithMessage("Please select a location in the Filter menu")
-        completion(results: nil, error: error)
-      }
-    case .None:
-      dispatch_group_enter(geoQueryGroup)
-      prepareRetailerQuery()
-    }
- 
-    dispatch_group_notify(geoQueryGroup, dispatch_get_main_queue()) {
-      if self.type == .Tap {
-        self.currentQuery = query
-      } else {
-        let matchQuery = self.newQuery()
-        matchQuery.whereKey("taps", matchesQuery: query)
-        self.currentQuery = matchQuery
-      }
-      
-      self.currentQuery?.orderBySortDescriptor(self.filter.sortDescriptor)
-      
-      self.currentQuery?.findObjectsInBackgroundWithBlock { (results, error) in
-        if let error = error {
-          completion(results: nil, error: error)
-        } else if let results = results as? [Retailer] where self.type == .Retailer {
-          
-          let resultsWithDistance: [Retailer] = results.map() { (retailer) -> Retailer in
-            let distance = self.distanceFromCurrentLocationToRetailer(retailer)
-            retailer.distanceFromLocation = distance
-            return retailer
-          }
-          completion(results: resultsWithDistance, error: nil)
-          
-        } else if let results = results {
-          completion(results: results, error: nil)
-        }
+//    dispatch_group_notify(geoQueryGroup, dispatch_get_main_queue()) {
+//      if self.type == .Tap {
+//        self.currentQuery = query
+//        self.currentQuery?.orderBySortDescriptor(self.filter.sortDescriptor)
+//      } else {
+//        let matchQuery = self.newQuery()
+//        matchQuery.whereKey("taps", matchesQuery: query)
+//        self.currentQuery = matchQuery
+//      }
+//
+//      self.currentQuery?.findObjectsInBackgroundWithBlock { (results, error) in
+//        if let error = error {
+//          completion(results: nil, error: error)
+//        } else if let results = results as? [Retailer] where self.type == .Retailer {
+//
+//          let resultsWithDistance: [Retailer] = results.map() { (retailer) -> Retailer in
+//            let distance = self.distanceFromCurrentLocationToRetailer(retailer)
+//            retailer.distanceFromLocation = distance
+//            return retailer
+//          }
+//          completion(results: resultsWithDistance, error: nil)
+//
+//        } else if let results = results {
+//          completion(results: results, error: nil)
+//        }
+//      }
+//    }
 
+    filter.locationGeoPoint { (locationGeoPoint, error) -> Void in
+      if let error = error {
+        completion(results: nil, error: error)
+      } else if let locationGeoPoint = locationGeoPoint {
+        self.currentGeoPoint = locationGeoPoint
+        let retailerQuery = Retailer.query()!
+        retailerQuery.whereKey("coordinates", nearGeoPoint: locationGeoPoint, withinMiles: self.filter.maxDistance)
+
+        if !self.filter.retailerIds.isEmpty && self.type != .Retailer {
+          retailerQuery.whereKey("retailerId", containedIn: self.filter.retailerIds)
+        }
+//        query.whereKey("retailers", matchesQuery: retailerQuery)
+
+        if self.type == .Tap {
+          self.currentQuery = query
+          self.currentQuery?.orderBySortDescriptor(self.filter.sortDescriptor)
+        } else {
+          let matchQuery = self.newQuery()
+//          matchQuery.whereKey("taps", matchesQuery: query)
+          self.currentQuery = matchQuery
+        }
+        
+        self.currentQuery?.findObjectsInBackgroundWithBlock { (results, error) in
+          if let error = error {
+            completion(results: nil, error: error)
+          } else if let results = results as? [Retailer] where self.type == .Retailer {
+            
+            let resultsWithDistance: [Retailer] = results.map() { (retailer) -> Retailer in
+              let distance = self.distanceFromCurrentLocationToRetailer(retailer)
+              retailer.distanceFromLocation = distance
+              return retailer
+            }
+            completion(results: resultsWithDistance, error: nil)
+            
+          } else if let results = results {
+            completion(results: results, error: nil)
+          }
+        }
       }
     }
   }
-  
+
   func tapsForObject(object: PFObject, ofType objectType: ObjectType, completionHandler: (taps: [Tap]?, error: NSError?) -> Void) {
     let query = Tap.query()!
     query.limit = kDefaultQueryLimit
@@ -238,12 +256,17 @@ class GenericQueryManager {
     switch type {
     case .Retailer:
       query = Retailer.query()!
+      if let currentGeoPoint = currentGeoPoint {
+        query.whereKey("coordinates", nearGeoPoint: currentGeoPoint, withinMiles: self.filter.maxDistance)
+      }
     case .Brewery:
       query = Brewery.query()!
+      query.orderByAscending("breweryName")
     case .Tap:
       query = Tap.query()!
     case .BeerStyle:
       query = BeerStyle.query()!
+      query.orderByAscending("categoryName")
     }
     return query
   }

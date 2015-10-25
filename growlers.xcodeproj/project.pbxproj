@@ -23,6 +23,8 @@
 		4C46393B1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */; };
 		4C46393E1B9FE39F00E208F5 /* BreweryDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */; };
 		4C4639401B9FE5C100E208F5 /* BreweryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */; };
+		4C6B77F61BDACA2800E42793 /* BaseBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4C6B77F81BDAF41400E42793 /* SimulatorCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B77F71BDAF41400E42793 /* SimulatorCheck.swift */; settings = {ASSET_TAGS = (); }; };
 		4C71D1511BAF81AE0057962C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1501BAF81AE0057962C /* LocationService.swift */; settings = {ASSET_TAGS = (); }; };
 		4C71D1531BAF84F30057962C /* ErrorAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4C87BFC51AF4576000217591 /* RetailerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BFC41AF4576000217591 /* RetailerViewCell.swift */; };
@@ -86,6 +88,8 @@
 		4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerFilterTableViewController.swift; sourceTree = "<group>"; };
 		4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreweryDetailHeader.xib; sourceTree = "<group>"; };
 		4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDetailTableViewController.swift; sourceTree = "<group>"; };
+		4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBrowseViewController.swift; sourceTree = "<group>"; };
+		4C6B77F71BDAF41400E42793 /* SimulatorCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorCheck.swift; sourceTree = "<group>"; };
 		4C71D1501BAF81AE0057962C /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewController.swift; sourceTree = "<group>"; };
 		4C87BFC41AF4576000217591 /* RetailerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerViewCell.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				4C46392D1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift */,
 				4C4639311B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift */,
 				4CC1ACA81BC099000082AECE /* NearbyBrowseViewController.swift */,
+				4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */,
 			);
 			name = "Browse View Controllers";
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				4CC1ACAE1BC22FC50082AECE /* GooglePlacesService.swift */,
 				4CC1ACA11BBEEC2E0082AECE /* GenericQueryManager.swift */,
 				4C71D1501BAF81AE0057962C /* LocationService.swift */,
+				4C6B77F71BDAF41400E42793 /* SimulatorCheck.swift */,
 				4CC1ACB01BC23E530082AECE /* ErrorHandler.swift */,
 				4C295CBD1AF40F78009F051B /* Filter.swift */,
 				4CDEAE6B1B05A7050089815E /* BeerStyle.swift */,
@@ -478,6 +484,7 @@
 				4C71D1531BAF84F30057962C /* ErrorAlertViewController.swift in Sources */,
 				4C46392E1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift in Sources */,
 				4CC1ACA01BBE44A50082AECE /* SearchResultsViewController.swift in Sources */,
+				4C6B77F61BDACA2800E42793 /* BaseBrowseViewController.swift in Sources */,
 				4C4639201B9E982900E208F5 /* BaseTableViewController.swift in Sources */,
 				4C4639321B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift in Sources */,
 				4CD6F1751B9DFF3300F9DDBD /* MainBrowseViewController.swift in Sources */,
@@ -503,6 +510,7 @@
 				4C1D47331AE84FE200855816 /* BreweryViewCell.swift in Sources */,
 				4C4639371B9FDAF500E208F5 /* BreweryFilterTableViewController.swift in Sources */,
 				4C46393B1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift in Sources */,
+				4C6B77F81BDAF41400E42793 /* SimulatorCheck.swift in Sources */,
 				4C4639281B9F620700E208F5 /* BaseTableViewCell.swift in Sources */,
 				4CC1ACAF1BC22FC50082AECE /* GooglePlacesService.swift in Sources */,
 				4CA172251BCD59F40082A87D /* DisplayImageService.swift in Sources */,

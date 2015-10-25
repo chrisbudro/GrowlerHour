@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BreweryBrowseTableViewController: BaseTableViewController {
+class BreweryBrowseTableViewController: BaseBrowseViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,7 +21,7 @@ class BreweryBrowseTableViewController: BaseTableViewController {
     dataSource = TableViewDataSource(cellReuseIdentifier:cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     
-    queryManager = GenericQueryManager(type: .Brewery)
+//    queryManager = GenericQueryManager(type: .Brewery)
     updateBrowseList()
   }
 }

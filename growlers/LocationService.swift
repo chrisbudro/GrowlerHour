@@ -47,7 +47,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     let userInfo = [NSLocalizedDescriptionKey: "Location Services is required to filter by proximity.  Please enable Location Services in the Settings app or select a manual location in the filter settings"]
     let servicesDisabledError = NSError(domain: kGrowlerErrorDomain, code: kGrowlerDefaultErrorCode, userInfo: userInfo)
     
-    if CLLocationManager.significantLocationChangeMonitoringAvailable() && CLLocationManager.locationServicesEnabled() {
+    if SimulatorCheck.isSimulator {
+      completion?(locationDetails: kDefaultLocationDetails, error: nil)
+    } else if CLLocationManager.significantLocationChangeMonitoringAvailable() && CLLocationManager.locationServicesEnabled() {
       if (CLLocationManager.authorizationStatus() != .AuthorizedAlways) {
         locationUpdateHandler = completion
         locationManager.requestAlwaysAuthorization()

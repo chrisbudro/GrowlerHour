@@ -38,8 +38,8 @@
                                     <constraint firstAttribute="height" constant="68" id="rPY-RF-ZJf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="3.2 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0Q-s0-8dn">
-                                <rect key="frame" x="264" y="11" width="32" height="13.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="3.2 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0Q-s0-8dn">
+                                <rect key="frame" x="264" y="8" width="32" height="13.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,7 +59,7 @@
                             <constraint firstItem="U0l-zk-12e" firstAttribute="top" secondItem="A9Q-Qz-nfd" secondAttribute="bottom" id="DXx-vm-oM3"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="E9P-s5-9i6" secondAttribute="bottom" constant="8" id="GMx-2E-FIn"/>
                             <constraint firstAttribute="trailing" secondItem="P0Q-s0-8dn" secondAttribute="trailing" constant="8" id="KcU-bW-ikS"/>
-                            <constraint firstItem="3uh-9m-MHl" firstAttribute="centerY" secondItem="P0Q-s0-8dn" secondAttribute="centerY" id="NfO-xR-wJV"/>
+                            <constraint firstItem="3uh-9m-MHl" firstAttribute="top" secondItem="P0Q-s0-8dn" secondAttribute="top" id="NfO-xR-wJV"/>
                             <constraint firstItem="3uh-9m-MHl" firstAttribute="leading" secondItem="E9P-s5-9i6" secondAttribute="trailing" constant="8" id="PpO-Oy-v3Z"/>
                             <constraint firstItem="E9P-s5-9i6" firstAttribute="top" secondItem="FWK-ZN-dKW" secondAttribute="top" constant="8" id="X3Z-DC-rnk"/>
                             <constraint firstItem="P0Q-s0-8dn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3uh-9m-MHl" secondAttribute="trailing" constant="16" id="Xxo-6g-uEs"/>

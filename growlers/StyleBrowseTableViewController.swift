@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StyleBrowseTableViewController: BaseTableViewController {
+class StyleBrowseTableViewController: BaseBrowseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,7 +20,7 @@ class StyleBrowseTableViewController: BaseTableViewController {
     dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     
-    queryManager = GenericQueryManager(type: .BeerStyle)
+//    queryManager = GenericQueryManager(type: .BeerStyle)
     updateBrowseList()
   }
 }

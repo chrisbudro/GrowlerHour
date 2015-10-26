@@ -25,7 +25,6 @@ class Retailer: PFObject {
   var coreLocation: CLLocation {
     return CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
   }
-  
 }
 
 extension Retailer: PFSubclassing {

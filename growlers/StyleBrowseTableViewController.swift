@@ -38,6 +38,11 @@ extension StyleBrowseTableViewController {
     }
     navigationController?.pushViewController(vc, animated: true)
   }
+  
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //TODO: Not a valid solution.  Need to solve UITableViewAutomaticDimension bug with insertRowAtIndexPaths
+    return 60
+  }
 }
 
 

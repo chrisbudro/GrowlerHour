@@ -57,10 +57,24 @@ class TapDetailViewController: UITableViewController {
         if let error = error {
           loadError = error
         } else if let retailers = retailers as? [Retailer] {
-          self.retailerList = retailers
+          
+          self.filter.locationGeoPoint({ (locationGeoPoint, error) -> Void in
+            if let error = error {
+              loadError = error
+            } else if let locationGeoPoint = locationGeoPoint {
+              self.retailerList = retailers.sort({ (firstRetailer, secondRetailer) -> Bool in
+                let firstDistance = firstRetailer.coordinates.distanceInMilesTo(locationGeoPoint)
+                let secondDistance = secondRetailer.coordinates.distanceInMilesTo(locationGeoPoint)
+                
+                return firstDistance < secondDistance
+              })
+            }
+          })
         }
         dispatch_group_leave(loadGroup)
       }
+      
+      
 
       dispatch_group_notify(loadGroup, dispatch_get_main_queue()) {
         if let loadError = loadError {
@@ -72,6 +86,10 @@ class TapDetailViewController: UITableViewController {
         activityIndicator.stopAnimating()
       }
     }
+  }
+  
+  func retailerDistanceCompare(retailer: Retailer) {
+    
   }
   
   // MARK: - Table view data source

@@ -22,9 +22,14 @@ class BaseTableViewController: UITableViewController {
   var queryManager: GenericQueryManager?
   var dataSource: TableViewDataSource?
   var configureCell: ConfigureCellFunction!
+  
+  var noResultsBackgroundView: UIView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let bgViews = NSBundle.mainBundle().loadNibNamed("NoResultsBackgroundView", owner: self, options: nil)
+    noResultsBackgroundView = bgViews.first as! UIView
 
     activityIndicator.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height / 2) - kActivityIndicatorVerticalOffset)
     view.addSubview(activityIndicator)
@@ -51,6 +56,7 @@ class BaseTableViewController: UITableViewController {
         self.presentViewController(alert, animated: true, completion: nil)
       } else if let results = results {
         self.dataSource?.updateObjectsWithArray(results)
+        self.tableView.backgroundView = results.count > 0 ? nil : self.noResultsBackgroundView
         self.tableView.reloadData()
       }
       self.activityIndicator.stopAnimating()

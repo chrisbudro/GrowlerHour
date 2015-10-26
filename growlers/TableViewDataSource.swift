@@ -15,7 +15,7 @@ class TableViewDataSource : NSObject, UITableViewDataSource {
   var objects = [AnyObject]()
   let cellReuseIdentifier: String
   let configureCell: ConfigureCellFunction
-  
+
   var lastIndex: Int {
     return objects.count - 1
   }
@@ -31,6 +31,8 @@ class TableViewDataSource : NSObject, UITableViewDataSource {
   init(cellReuseIdentifier: String, configureCell: ConfigureCellFunction) {
     self.cellReuseIdentifier = cellReuseIdentifier
     self.configureCell = configureCell
+    
+    super.init()
   }
   
   func objectAtIndexPath(indexPath: NSIndexPath) -> AnyObject {
@@ -48,7 +50,7 @@ class TableViewDataSource : NSObject, UITableViewDataSource {
   func clearObjects() {
     objects = []
   }
-
+  
   @objc func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return objects.count
   }

@@ -46,7 +46,7 @@ extension RetailerViewCell: ConfigurableCell {
 //      numberOfTapsLabel.text = "\(retailer.taps.count) \(beerOrBeers) on Tap"
       distanceLabel.text = retailer.distanceFromLocation != nil ? "\(retailer.distanceFromLocation!) mi" : ""
       
-      DisplayImageService.setImageView(retailerImageView, withUrlString: retailer.photo?.url, placeholderImage: UIImage(named: "growlerIcon"))
+      DisplayImageService.setImageView(retailerImageView, withUrlString: retailer.photo?.url, placeholderImage: UIImage(named: "GrowlerPlaceholder"))
     }
   }
 }

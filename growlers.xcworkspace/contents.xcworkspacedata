@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:growlers.xcodeproj">
+      location = "group:/Users/chrisbudro/Google Drive/Code/projects/Growlst/GrowlerHour/GrowlerHour.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

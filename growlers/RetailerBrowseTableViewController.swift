@@ -31,7 +31,7 @@ class RetailerBrowseTableViewController: BaseBrowseViewController {
       let vc = RetailerDetailViewController()
       vc.retailer = retailer
       if let queryManager = queryManager {
-        let retailerQueryManager = GenericQueryManager(type: .Tap, filter: queryManager.filter)
+        let retailerQueryManager = QueryManager(type: .Tap, filter: queryManager.filter)
         vc.queryManager = retailerQueryManager
       }
       navigationController?.pushViewController(vc, animated: true)

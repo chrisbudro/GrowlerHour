@@ -34,7 +34,7 @@ extension BreweryBrowseTableViewController {
     if let brewery = dataSource?.objectAtIndexPath(indexPath) as? Brewery {
       vc.brewery = brewery
       if let queryManager = queryManager {
-        let breweryQueryManager = GenericQueryManager(type: .Tap, filter: queryManager.filter)
+        let breweryQueryManager = QueryManager(type: .Tap, filter: queryManager.filter)
         vc.queryManager = breweryQueryManager
       }
     }

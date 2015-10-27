@@ -8,7 +8,7 @@
         <!--Filter View Controller-->
         <scene sceneID="g1x-ds-xru">
             <objects>
-                <tableViewController id="kce-B2-emd" customClass="FilterViewController" customModule="growlers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kce-B2-emd" customClass="FilterViewController" customModule="GrowlerHour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="9pS-vm-cxr">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,7 +412,7 @@
         <!--Filtering List Controller-->
         <scene sceneID="jnR-bp-Aq1">
             <objects>
-                <viewController id="Pmu-UU-4Pg" customClass="FilteringListController" customModule="growlers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pmu-UU-4Pg" customClass="FilteringListController" customModule="GrowlerHour" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="952-nJ-xxw"/>
                         <viewControllerLayoutGuide type="bottom" id="ZUP-vq-YeG"/>
@@ -467,7 +467,7 @@
         <!--Growler Hour-->
         <scene sceneID="ojr-dR-VVb">
             <objects>
-                <tableViewController id="XHv-lY-VPT" customClass="MainBrowseViewController" customModule="growlers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XHv-lY-VPT" customClass="MainBrowseViewController" customModule="GrowlerHour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="180" sectionHeaderHeight="22" sectionFooterHeight="22" id="cHx-Cp-DxW">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -615,7 +615,7 @@
         <!--Results View Controller-->
         <scene sceneID="uOp-km-hwM">
             <objects>
-                <tableViewController id="ke8-cf-P8C" customClass="ResultsViewController" customModule="growlers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ke8-cf-P8C" customClass="ResultsViewController" customModule="GrowlerHour" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EO9-9V-jhD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

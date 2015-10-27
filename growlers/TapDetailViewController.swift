@@ -167,7 +167,7 @@ class TapDetailViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let queryManager = GenericQueryManager(type: .Tap, filter: filter)
+    let queryManager = QueryManager(type: .Tap, filter: filter)
     
     if indexPath.section == kBrewerySection {
       let vc = BreweryDetailTableViewController()

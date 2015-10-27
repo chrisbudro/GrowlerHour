@@ -1,5 +1,5 @@
 //
-//  GenericQueryManager.swift
+//  QueryManager.swift
 //  growlers
 //
 //  Created by Chris Budro on 10/2/15.
@@ -20,7 +20,7 @@ enum ObjectType {
 let kDefaultQueryLimit: Int = 50
 let kDefaultQueryMaxDistance: Double = 50
 
-class GenericQueryManager {
+class QueryManager {
   
   //MARK: Properties
   let type: ObjectType

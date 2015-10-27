@@ -32,7 +32,7 @@ extension StyleBrowseTableViewController {
     if let beerStyle = dataSource?.objectAtIndexPath(indexPath) as? BeerStyle {
       vc.beerStyle = beerStyle
       if let queryManager = queryManager {
-        let styleQueryManager = GenericQueryManager(type: .Tap, filter: queryManager.filter)
+        let styleQueryManager = QueryManager(type: .Tap, filter: queryManager.filter)
         vc.queryManager = styleQueryManager
       }
     }

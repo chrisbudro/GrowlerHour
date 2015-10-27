@@ -53,15 +53,15 @@ extension MainBrowseViewController {
     switch indexPath.row {
     case BrowseBySelector.Brewery.rawValue:
       viewController = BreweryBrowseTableViewController(style: .Plain)
-      let queryManager = GenericQueryManager(type: .Brewery, filter: filter)
+      let queryManager = QueryManager(type: .Brewery, filter: filter)
       viewController?.queryManager = queryManager
     case BrowseBySelector.Style.rawValue:
       viewController = StyleBrowseTableViewController(style: .Plain)
-      let queryManager = GenericQueryManager(type: .BeerStyle, filter: filter)
+      let queryManager = QueryManager(type: .BeerStyle, filter: filter)
       viewController?.queryManager = queryManager
     case BrowseBySelector.Retailer.rawValue:
       viewController = RetailerBrowseTableViewController(style: .Plain)
-      let queryManager = GenericQueryManager(type: .Retailer, filter: filter)
+      let queryManager = QueryManager(type: .Retailer, filter: filter)
       viewController?.queryManager = queryManager
     default:
       break

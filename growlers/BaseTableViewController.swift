@@ -21,7 +21,7 @@ class BaseTableViewController: UITableViewController {
   var cellReuseIdentifier: String!
   var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
 
-  var queryManager: GenericQueryManager?
+  var queryManager: QueryManager?
   var dataSource: TableViewDataSource?
   var configureCell: ConfigureCellFunction!
   

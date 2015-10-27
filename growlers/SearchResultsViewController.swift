@@ -30,7 +30,7 @@ final class ResultsViewController: BaseTableViewController {
     let filterButton = UIBarButtonItem(image: UIImage(named: "sliders"), style: .Plain, target: self, action: "showFiltersWasPressed")
     navigationItem.rightBarButtonItem = filterButton
     
-    queryManager = GenericQueryManager(type: .Tap)
+    queryManager = QueryManager(type: .Tap)
     
     cellReuseIdentifier = kTapCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)

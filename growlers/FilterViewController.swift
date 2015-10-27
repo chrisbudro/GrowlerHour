@@ -162,17 +162,17 @@ extension FilterViewController {
       
     case retailerFilterCell:
       let vc = RetailerFilterTableViewController(style: .Plain)
-      vc.queryManager = GenericQueryManager(type: .Retailer, filter: filter)
+      vc.queryManager = QueryManager(type: .Retailer, filter: filter)
       vc.delegate = self
       navigationController?.pushViewController(vc, animated: true)
     case breweryFilterCell:
       let vc = BreweryFilterTableViewController(style: .Plain)
-      vc.queryManager = GenericQueryManager(type: .Brewery, filter: filter)
+      vc.queryManager = QueryManager(type: .Brewery, filter: filter)
       vc.delegate = self
       navigationController?.pushViewController(vc, animated: true)
     case categoryFilterCell:
       let vc = StyleFilterTableViewController(style: .Plain)
-      vc.queryManager = GenericQueryManager(type: .BeerStyle, filter: filter)
+      vc.queryManager = QueryManager(type: .BeerStyle, filter: filter)
       vc.delegate = self
       navigationController?.pushViewController(vc, animated: true)
       

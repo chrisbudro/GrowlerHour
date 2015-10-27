@@ -10,6 +10,7 @@ import UIKit
 
 class RetailerBrowseTableViewController: BaseBrowseViewController {
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -21,12 +22,10 @@ class RetailerBrowseTableViewController: BaseBrowseViewController {
     dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
 
-//    queryManager = GenericQueryManager(type: .Retailer)
     updateBrowseList()
   }
   
   //MARK: Table View Delegate
-  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if let retailer = dataSource?.objectAtIndexPath(indexPath) as? Retailer {
       let vc = RetailerDetailViewController()

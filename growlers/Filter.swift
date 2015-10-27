@@ -31,6 +31,7 @@ let kDefaultMaxSearchDistance: Double = 50
 let kDefaultLocationDetails: LocationDetails = (name: "Portland", coordinate: CLLocationCoordinate2DMake(45.523193, -122.672053))
 
 struct Filter {
+  //MARK: Properties
   var breweryIds: [Int]
   var categoryIds: [String]
   var tapIds: [Int]
@@ -41,7 +42,6 @@ struct Filter {
       isDirty = true
     }
   }
-  
   var abvRange: (min: Int, max: Int) {
     didSet {
       isDirty = true
@@ -52,7 +52,6 @@ struct Filter {
       isDirty = true
     }
   }
-  
   var maxDistance: Double {
     didSet {
       isDirty = true
@@ -78,7 +77,6 @@ struct Filter {
       isDirty = true
     }
   }
-  
   var isDirty = false {
     willSet {
       if newValue {
@@ -87,6 +85,7 @@ struct Filter {
     }
   }
   
+  //MARK: Initializer
   init() {
     self.breweryIds = []
     self.categoryIds = []
@@ -100,6 +99,7 @@ struct Filter {
     self.includeCider = false
   }
   
+  //MARK: Helper Methods
   mutating func clearFilter() {
     self = Filter()
     isDirty = true
@@ -152,7 +152,26 @@ struct Filter {
       isDirty = true
     }
   }
+  
+  func isInFilter(object: Filterable) -> Bool {
+    var inFilter = false
+    
+    switch object {
+    case is Brewery:
+      let brewery = object as! Brewery
+      //TODO: Refactor brewery and tap ID Types
+      inFilter = breweryIds.indexOf(brewery.breweryId) != nil ? true : false
+    case is Retailer:
+      inFilter = retailerIds.indexOf(object.id) != nil ? true : false
+    case is BeerStyle:
+      inFilter = categoryIds.indexOf(object.id) != nil ? true : false
+    default:
+      break
+    }
+    return inFilter
+  }
 
+  //MARK: Location Details
   mutating func retrieveLocationDetails(completion: (locationDetails: LocationDetails?, error: NSError?) -> Void) {
     if let locationDetails = locationDetails {
       completion(locationDetails: locationDetails, error: nil)
@@ -183,21 +202,5 @@ struct Filter {
     }
   }
   
-  func isInFilter(object: Filterable) -> Bool {
-    var inFilter = false
-    
-    switch object {
-    case is Brewery:
-      let brewery = object as! Brewery
-      //TODO: Refactor brewery and tap ID Types
-      inFilter = breweryIds.indexOf(brewery.breweryId) != nil ? true : false
-    case is Retailer:
-      inFilter = retailerIds.indexOf(object.id) != nil ? true : false
-    case is BeerStyle:
-      inFilter = categoryIds.indexOf(object.id) != nil ? true : false
-    default:
-      break
-    }
-    return inFilter
-  }
+
 }

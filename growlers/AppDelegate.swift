@@ -55,13 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     currentInstallation.setDeviceTokenFromData(deviceToken)
     currentInstallation.saveInBackgroundWithBlock { (isSaved: Bool, error: NSError?) -> Void in
       if (!isSaved) {
-        print(error)
+
       }
     }
   }
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-    print(userInfo)
     PFPush.handlePush(userInfo)
   }
   

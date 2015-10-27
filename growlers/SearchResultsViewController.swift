@@ -10,6 +10,7 @@ import Foundation
 
 final class ResultsViewController: BaseTableViewController {
   
+  //MARK: Constants
   let kFilterHeaderHeight: CGFloat = 50
   
   //MARK: Properties
@@ -17,7 +18,6 @@ final class ResultsViewController: BaseTableViewController {
   let searchBar = UISearchBar()
   
   //MARK: Life Cycle Methods
-  
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
@@ -53,7 +53,6 @@ final class ResultsViewController: BaseTableViewController {
   }
   
   //MARK: Helper Methods
-
   override func updateBrowseList() {
     self.textCleared = false
     if let dataSource = dataSource where !dataSource.isEmpty {
@@ -72,15 +71,6 @@ final class ResultsViewController: BaseTableViewController {
   
   func locationWasUpdated(notification: NSNotification) {
     updateBrowseList()
-    
-//    switch queryManager!.locationFilterMethod {
-//    case .CurrentLocation:
-//     let userInfo = notification.userInfo!
-//      let _ = userInfo[kNewLocationKey]
-//      updateBrowseList()
-//    default:
-//      break
-//    }
   }
 }
 

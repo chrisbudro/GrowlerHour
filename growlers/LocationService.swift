@@ -14,8 +14,10 @@ typealias LocationUpdateHandler = ((locationDetails: LocationDetails?, error: NS
 
 class LocationService: NSObject, CLLocationManagerDelegate {
   
+  //MARK: Singleton Instance
   static let shared = LocationService()
   
+  //MARK: Properties
   private var locationUpdateHandler: LocationUpdateHandler?
   let locationManager = CLLocationManager()
   private(set) var currentLocation: CLLocation? {
@@ -38,18 +40,18 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     return nil
   }
   
+  //MARK: Initializer
   private override init() {
     super.init()
     locationManager.delegate = self
   }
   
+  //MARK: Helper Methods
   func startMonitoringLocation(completion: LocationUpdateHandler?) {
     let userInfo = [NSLocalizedDescriptionKey: "Location Services is required to filter by proximity.  Please enable Location Services in the Settings app or select a manual location in the filter settings"]
     let servicesDisabledError = NSError(domain: kGrowlerErrorDomain, code: kGrowlerDefaultErrorCode, userInfo: userInfo)
     
-    if SimulatorCheck.isSimulator {
-      completion?(locationDetails: kDefaultLocationDetails, error: nil)
-    } else if CLLocationManager.significantLocationChangeMonitoringAvailable() && CLLocationManager.locationServicesEnabled() {
+    if CLLocationManager.significantLocationChangeMonitoringAvailable() && CLLocationManager.locationServicesEnabled() {
       if (CLLocationManager.authorizationStatus() != .AuthorizedAlways) {
         locationUpdateHandler = completion
         locationManager.requestAlwaysAuthorization()
@@ -72,8 +74,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
   }
   
   //MARK: Core Location Manager Delegate
-  
-  
   func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
     
     if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {

@@ -17,33 +17,25 @@ enum ObjectType {
   case Tap
 }
 
-//enum LocationFilterMethod {
-//  case CurrentLocation
-//  case CustomLocation(LocationDetails)
-//  case None
-//}
+let kDefaultQueryLimit: Int = 50
+let kDefaultQueryMaxDistance: Double = 50
 
 class GenericQueryManager {
+  
+  //MARK: Properties
   let type: ObjectType
   typealias completionHandler = ((results: [PFObject]?, error: NSError?) -> Void)
-  
-  let kDefaultQueryLimit: Int = 50
-  let kDefaultQueryMaxDistance: Double = 50
-
-  
   var filter = Filter() {
     didSet {
       isDirty = true
     }
   }
   var isDirty = true
-//  var locationFilterMethod: LocationFilterMethod = .None
-//  var currentLocation: CLLocation?
   var currentGeoPoint: PFGeoPoint?
   var currentQuery: PFQuery?
   let locationService = LocationService.shared
   
-  
+  //MARK: Initializers
   init(type: ObjectType) {
     self.type = type
   }
@@ -106,14 +98,6 @@ class GenericQueryManager {
         }
         query.whereKey("retailers", matchesQuery: retailerQuery)
 
-//        if self.type == .Tap {
-//          self.currentQuery = query
-//          self.currentQuery?.orderBySortDescriptor(self.filter.sortDescriptor)
-//        } else {
-//          let matchQuery = self.newQueryFromQuery(query)
-//          self.currentQuery = matchQuery
-//        }
-        
         self.currentQuery = self.newQueryFromQuery(query)
         
         self.currentQuery?.findObjectsInBackgroundWithBlock { (results, error) in
@@ -136,17 +120,6 @@ class GenericQueryManager {
     }
   }
   
-//  func testGeoQuery(completion: (results: [Retailer]?, error: NSError?) -> Void) {
-//    let query = Retailer.query()!
-//    query.whereKey("coordinates", nearGeoPoint: PFGeoPoint(latitude: 45.5191, longitude: -122.615984))
-//    
-//    query.findObjectsInBackgroundWithBlock { (results, error) -> Void in
-//      if let results = results as? [Retailer] {
-//        completion(results: results, error: nil)
-//      }
-//    }
-//  }
-
   func tapsForObject(object: PFObject, ofType objectType: ObjectType, completionHandler: (taps: [Tap]?, error: NSError?) -> Void) {
     let query = Tap.query()!
     query.limit = kDefaultQueryLimit

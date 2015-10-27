@@ -15,6 +15,7 @@ protocol FilterDelegate: class {
 
 class FilterViewController: UITableViewController {
   
+  //MARK: Constants
   let kSliderValueMultiplier: Float = 50
   let kSliderMinimumValue: Float = 0.02
   
@@ -43,9 +44,9 @@ class FilterViewController: UITableViewController {
   
   //MARK: Properties
   weak var delegate: FilterDelegate?
-
   var filter: Filter!
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     abvMinTextField.delegate = self
     abvMaxTextField.delegate = self
@@ -54,14 +55,10 @@ class FilterViewController: UITableViewController {
     distanceSlider.minimumValue = kSliderMinimumValue
   }
   
-  //MARK: Life Cycle Methods
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     setLabels()
-    
   }
-  
   
   //MARK: Helper Methods
   func setBreweryLabel() {
@@ -227,6 +224,7 @@ extension FilterViewController: UITextFieldDelegate {
   }
 }
 
+//MARK: Filter Delegate
 extension FilterViewController: FilterDelegate {
   func filterWasUpdated(filter: Filter) {
     if filter.isDirty {
@@ -235,6 +233,7 @@ extension FilterViewController: FilterDelegate {
   }
 }
 
+//MARK: LocationPicker Delegate
 extension FilterViewController: LocationPickerDelegate {
   func customLocationWasPicked(locationDetails: LocationDetails) {
     filter.locationDetails = locationDetails

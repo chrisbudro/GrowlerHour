@@ -13,9 +13,11 @@ import AlamofireImage
 
 class BaseTableViewController: UITableViewController {
   
+  //MARK: Constants
   let kActivityIndicatorVerticalOffset: CGFloat = 80
   let kTableFooterViewHeight: CGFloat = 40
 
+  //MARK: Properties
   var cellReuseIdentifier: String!
   var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
 
@@ -25,6 +27,7 @@ class BaseTableViewController: UITableViewController {
   
   var noResultsBackgroundView: UIView!
 
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -46,6 +49,7 @@ class BaseTableViewController: UITableViewController {
     }
   }
 
+  //MARK: Helper Methods
   func updateBrowseList() {
     dataSource?.clearObjects()
     tableView.reloadData()

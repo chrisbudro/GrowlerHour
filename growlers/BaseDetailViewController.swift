@@ -10,15 +10,15 @@ import UIKit
 import Parse
 
 class BaseDetailViewController: BaseTableViewController {
+  //MARK: Properties
   var parentObject: PFObject?
 
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
 
     cellReuseIdentifier = kTapCellReuseIdentifier
     tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-    
-//    queryManager = GenericQueryManager(type: .Brewery)
     
     dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
@@ -26,6 +26,7 @@ class BaseDetailViewController: BaseTableViewController {
     queryForTaps()
   }
 
+  //MARK: Helper Methods
   func queryForTaps() {}
 }
 

@@ -9,8 +9,10 @@
 import Foundation
 
 class BaseFilterTableViewController: BaseTableViewController {
+  //MARK: Properties
   var delegate: FilterDelegate?
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -24,6 +26,7 @@ class BaseFilterTableViewController: BaseTableViewController {
     }
   }
   
+  //MARK: Helper Methods
   func isSelected(object: Filterable) -> Bool {
     if let queryManager = queryManager {
       return queryManager.filter.isInFilter(object)

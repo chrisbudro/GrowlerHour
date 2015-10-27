@@ -11,6 +11,7 @@ import Alamofire
 
 class BeerViewCell: UITableViewCell {
 
+  //MARK: Outlets
   @IBOutlet weak var breweryLabel: UILabel!
   @IBOutlet weak var beerTitleLabel: UILabel!
   @IBOutlet weak var beerStyleLabel: UILabel!
@@ -19,6 +20,7 @@ class BeerViewCell: UITableViewCell {
   @IBOutlet weak var ibuTextLabel: UILabel!
   @IBOutlet weak var mainCanvasView: UIView!
   
+  //MARK: Life Cycle Methods
   override func prepareForReuse() {
     super.prepareForReuse()
     
@@ -37,6 +39,7 @@ class BeerViewCell: UITableViewCell {
   }
 }
 
+//MARK: Configurable Cell
 extension BeerViewCell: ConfigurableCell {
   func configureCellForObject(object: AnyObject) {
     if let tap = object as? Tap {

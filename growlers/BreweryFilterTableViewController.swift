@@ -10,6 +10,7 @@ import UIKit
 
 final class BreweryFilterTableViewController: BaseFilterTableViewController {
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -22,7 +23,7 @@ final class BreweryFilterTableViewController: BaseFilterTableViewController {
     updateBrowseList()
   }
 
-//MARK: Table View Delegate
+  //MARK: Table View Delegate
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if let
       brewery = dataSource?.objectAtIndexPath(indexPath) as? Brewery,

@@ -16,6 +16,7 @@ class BaseBrowseViewController: BaseTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    //TODO: Implement Search Functionality on browse lists
 //    searchBar.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: kSearchBarHeight)
 //    tableView.tableHeaderView = searchBar
     

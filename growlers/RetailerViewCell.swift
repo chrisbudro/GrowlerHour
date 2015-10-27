@@ -12,6 +12,7 @@ let kMetersToMilesConversionMultiplier = 0.000621371
 
 class RetailerViewCell: UITableViewCell {
   
+  //MARK: Outlets
   @IBOutlet weak var retailerNameLabel: UILabel!
   @IBOutlet weak var retailerAddressLabel: UILabel!
   @IBOutlet weak var distanceLabel: UILabel!
@@ -19,11 +20,7 @@ class RetailerViewCell: UITableViewCell {
   @IBOutlet weak var retailerImageView: UIImageView!
   @IBOutlet weak var mainCanvasView: UIView!
   
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    mainCanvasView.setBackgroundShadow()
-  }
-  
+  //MARK: Life Cycle Methods
   override func prepareForReuse() {
     super.prepareForReuse()
     
@@ -34,16 +31,20 @@ class RetailerViewCell: UITableViewCell {
     retailerImageView.af_cancelImageRequest()
     retailerImageView.image = nil
   }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    mainCanvasView.setBackgroundShadow()
+  }
 }
 
+//MARK: Configurable Cell
 extension RetailerViewCell: ConfigurableCell {
   func configureCellForObject(object: AnyObject) {
     
     if let retailer = object as? Retailer {
       retailerNameLabel.text = retailer.retailerName
       retailerAddressLabel.text = "\(retailer.streetAddress), \(retailer.city)"
-//      let beerOrBeers = retailer.taps.count == 1 ? "Beer" : "Beers"
-//      numberOfTapsLabel.text = "\(retailer.taps.count) \(beerOrBeers) on Tap"
       distanceLabel.text = retailer.distanceFromLocation != nil ? "\(retailer.distanceFromLocation!) mi" : ""
       
       DisplayImageService.setImageView(retailerImageView, withUrlString: retailer.photo?.url, placeholderImage: UIImage(named: "GrowlerPlaceholder"))

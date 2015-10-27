@@ -11,12 +11,14 @@ import Alamofire
 
 class BreweryViewCell: UITableViewCell {
   
+  //MARK: Outlets
   @IBOutlet weak var breweryNameLabel: UILabel!
   @IBOutlet weak var homeTownLabel: UILabel!
   @IBOutlet weak var logoImageView: UIImageView!
   @IBOutlet weak var numberOfTapsLabel: UILabel!
   @IBOutlet weak var mainCanvasView: UIView!
 
+  //MARK: Life Cycle Methods
   override func prepareForReuse() {
     super.prepareForReuse()
     
@@ -33,6 +35,7 @@ class BreweryViewCell: UITableViewCell {
   }
 }
 
+//MARK: Configurable Cell
 extension BreweryViewCell: ConfigurableCell {
   func configureCellForObject(object: AnyObject) {
     if let brewery = object as? Brewery {
@@ -43,10 +46,7 @@ extension BreweryViewCell: ConfigurableCell {
           let separator = !city.isEmpty && !state.isEmpty ? ", " : ""
           homeTownLabel.text = "\(city)\(separator)\(state)"
       }
-      
-//      let beerOrBeers = brewery.taps.count == 1 ? "Beer" : "Beers"
-//      numberOfTapsLabel.text = "\(brewery.taps.count) \(beerOrBeers) on Tap"
-      
+
       DisplayImageService.setImageView(logoImageView, withUrlString: brewery.imageUrl, placeholderImage: UIImage(named: "growlerIcon"))
     }
   }

@@ -10,6 +10,7 @@ import UIKit
 
 class BreweryBrowseTableViewController: BaseBrowseViewController {
 
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -21,7 +22,6 @@ class BreweryBrowseTableViewController: BaseBrowseViewController {
     dataSource = TableViewDataSource(cellReuseIdentifier:cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     
-//    queryManager = GenericQueryManager(type: .Brewery)
     updateBrowseList()
   }
 }

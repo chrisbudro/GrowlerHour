@@ -11,24 +11,16 @@ import Parse
 
 class BreweryDetailTableViewController: BaseDetailViewController {
   
+  //MARK: Properties
   var brewery: Brewery?
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = brewery?.breweryName
-    
-//    cellReuseIdentifier = kTapCellReuseIdentifier
-//    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-//    
-//    queryManager = GenericQueryManager(type: .Brewery)
-//    
-//    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
-//    tableView.dataSource = dataSource
-//    
-//    queryForTaps()
   }
   
+  //MARK: Helper Methods
   override func queryForTaps() {
     if let
       brewery = brewery,

@@ -10,26 +10,16 @@ import Foundation
 
 class BeerStyleDetailViewController: BaseDetailViewController {
   
+  //MARK: Properties
   var beerStyle: BeerStyle?
 
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = beerStyle?.categoryName
-    
-//    cellReuseIdentifier = kTapCellReuseIdentifier
-//    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-//    
-//    queryManager = GenericQueryManager(type: .BeerStyle)
-//    
-//    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
-//    tableView.dataSource = dataSource
-//    
-//    queryForTaps()
-    
-
   }
 
+  //MARK: Helper Methods
   override func queryForTaps() {
     if let
       beerStyle = beerStyle,

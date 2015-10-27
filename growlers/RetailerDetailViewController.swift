@@ -10,24 +10,16 @@ import Foundation
 
 class RetailerDetailViewController: BaseDetailViewController {
   
+  //MARK: Properties
   var retailer: Retailer?
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = retailer?.retailerName
-    
-//    cellReuseIdentifier = kTapCellReuseIdentifier
-//    tableView.registerNib(UINib(nibName: kTapNibName, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-//    
-//    queryManager = GenericQueryManager(type: .Retailer)
-//    
-//    dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
-//    tableView.dataSource = dataSource
-//    
-//    queryForTaps()
   }
   
+  //MARK: Helper Methods
   override func queryForTaps() {
     if let
       retailer = retailer,

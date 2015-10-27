@@ -10,6 +10,7 @@ import UIKit
 
 class RetailerFilterTableViewController: BaseFilterTableViewController {
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -23,6 +24,7 @@ class RetailerFilterTableViewController: BaseFilterTableViewController {
     updateBrowseList()
   }
 
+  //MARK: Table View Delegate
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if let
       retailer = dataSource?.objectAtIndexPath(indexPath) as? Retailer,

@@ -10,9 +10,6 @@ import Foundation
 
 extension UIView {
     func setBackgroundShadow() {
-      //Workaround while trying to solve issue with mainCanvasView sizing bug
-//      let bounds = CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y, width: self.bounds.width - (kMainCanvasHorizontalPaddingConstraint * 2), height: self.bounds.height - (kMainCanvasVerticalPaddingConstraint * 2))
-      
       self.setNeedsLayout()
       self.layoutIfNeeded()
       

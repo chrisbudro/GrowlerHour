@@ -10,6 +10,7 @@ import UIKit
 
 class StyleBrowseTableViewController: BaseBrowseViewController {
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Styles"
@@ -20,7 +21,6 @@ class StyleBrowseTableViewController: BaseBrowseViewController {
     dataSource = TableViewDataSource(cellReuseIdentifier: cellReuseIdentifier, configureCell: configureCell)
     tableView.dataSource = dataSource
     
-//    queryManager = GenericQueryManager(type: .BeerStyle)
     updateBrowseList()
   }
 }

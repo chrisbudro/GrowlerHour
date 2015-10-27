@@ -10,6 +10,7 @@ import UIKit
 
 class StyleFilterTableViewController: BaseFilterTableViewController {
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -23,7 +24,6 @@ class StyleFilterTableViewController: BaseFilterTableViewController {
   }
 
   //MARK: Table View Delegate
-  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if let
       beerStyle = dataSource?.objectAtIndexPath(indexPath) as? BeerStyle,

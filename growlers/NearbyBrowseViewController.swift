@@ -68,7 +68,7 @@ class NearbyBrowseViewController: UITableViewController {
 //    } else {
 //      tap.fetchIfNeededInBackgroundWithBlock { (tap, error) in
 //        if let error = error {
-//          print("error: \(error.localizedDescription)")
+
 //        } else if let tap = tap as? Tap {
 //          cell.configureCellForObject(tap)
 //        }

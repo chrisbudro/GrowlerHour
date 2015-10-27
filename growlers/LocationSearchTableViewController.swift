@@ -15,12 +15,14 @@ protocol LocationPickerDelegate: class {
 
 final class LocationSearchTableViewController: UITableViewController {
   
+  //MARK: Properties
   let resultsViewController = UITableViewController(style: .Plain)
   var searchController: UISearchController!
   weak var delegate: LocationPickerDelegate?
   
   var searchResults = [GMSAutocompletePrediction]()
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Location"
@@ -36,8 +38,7 @@ final class LocationSearchTableViewController: UITableViewController {
     tableView.tableHeaderView = searchController.searchBar
   }
   
-  // MARK: - Table view data source
-  
+  // MARK: Table view data source
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
@@ -63,7 +64,6 @@ final class LocationSearchTableViewController: UITableViewController {
   }
 
   //MARK: Table View Delegate
-  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if tableView == self.tableView {
       self.delegate?.currentLocationWasPicked()
@@ -85,16 +85,14 @@ final class LocationSearchTableViewController: UITableViewController {
   }
 }
 
+//MARK: Search Results Updating
 extension LocationSearchTableViewController: UISearchResultsUpdating {
   func updateSearchResultsForSearchController(searchController: UISearchController) {
     GooglePlacesService.autocompleteResultsFromSearchTerm(searchController.searchBar.text) { (predictions, error) -> Void in
-      if let error = error {
-        print(error.localizedDescription)
-//        let alert = ErrorAlertController.alertControllerWithError(error)
-//        self.presentViewController(alert, animated: true, completion: nil)
+      if let _ = error {
+        //TODO: Handle error
       } else if let predictions = predictions {
         self.searchResults = predictions
-        print(self.searchResults.count)
         self.resultsViewController.tableView.reloadData()
       }
     }

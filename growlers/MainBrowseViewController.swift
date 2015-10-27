@@ -15,21 +15,17 @@ enum BrowseBySelector: Int {
   case PoweredBy = 3
 }
 
-struct BrowseCell {
-  static let brewery = "BreweryCell"
-  static let retailer = "RetailerCell"
-  static let category = "CategoryCell"
-}
-
 final class MainBrowseViewController: UITableViewController {
   
+  //MARK: Constants
   let numberOfCells: CGFloat = 3
   let kPoweredByCellHeight: CGFloat = 60
   
+  //MARK: Properties
   var filter = Filter()
 
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
-
     filter.retrieveLocationDetails { (locationDetails, error) -> Void in
       self.filter.locationDetails = locationDetails
     }
@@ -39,6 +35,7 @@ final class MainBrowseViewController: UITableViewController {
     navigationItem.rightBarButtonItem = filterButton
   }
   
+  //MARK: Helper Methods
   func showFiltersWasPressed() {
     let filterViewNavController = storyboard?.instantiateViewControllerWithIdentifier("FilterViewNavController") as! UINavigationController
     let filterViewController = filterViewNavController.viewControllers.first as! FilterViewController
@@ -90,13 +87,9 @@ extension MainBrowseViewController {
   }
 }
 
-
-
 //MARK: Filter Delegate
 extension MainBrowseViewController: FilterDelegate {
   func filterWasUpdated(filter: Filter) {
     self.filter = filter
-//    queryManager?.filter.isDirty = false
-//    updateBrowseList()
   }
 }

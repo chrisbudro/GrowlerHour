@@ -11,18 +11,21 @@ import Parse
 
 class TapDetailViewController: UITableViewController {
   
+  //MARK: Constants
   let kCellReuseIdentifier = "Cell"
   let kSectionHeaderHeight: CGFloat = 25
-  
   let kTapSection = 0
-  let kRetailerSection = 2
   let kBrewerySection = 1
+  let kRetailerSection = 2
+  
+  //MARK: Properties
   var retailerList: [Retailer] = []
   var tap: Tap?
   var brewery: Brewery?
   
   var filter: Filter!
   
+  //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -34,14 +37,19 @@ class TapDetailViewController: UITableViewController {
     tableView.estimatedRowHeight = kEstimatedCellHeight
     tableView.rowHeight = UITableViewAutomaticDimension
     
+    populateDataSource()
+  }
+  
+  //MARK: Helper Methods
+  func populateDataSource() {
     let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(view.frame.width / 2, view.frame.height / 2, 15, 15))
     view.addSubview(activityIndicator)
-    activityIndicator.startAnimating()
     
     let loadGroup = dispatch_group_create()
     var loadError: NSError?
     
     if let tap = tap {
+      activityIndicator.startAnimating()
       dispatch_group_enter(loadGroup)
       tap.brewery.fetchIfNeededInBackgroundWithBlock { (brewery, error) -> Void in
         if let error = error {
@@ -58,24 +66,22 @@ class TapDetailViewController: UITableViewController {
           loadError = error
         } else if let retailers = retailers as? [Retailer] {
           
-          self.filter.locationGeoPoint({ (locationGeoPoint, error) -> Void in
+          self.filter.locationGeoPoint { (locationGeoPoint, error) -> Void in
             if let error = error {
               loadError = error
             } else if let locationGeoPoint = locationGeoPoint {
-              self.retailerList = retailers.sort({ (firstRetailer, secondRetailer) -> Bool in
+              self.retailerList = retailers.sort { (firstRetailer, secondRetailer) -> Bool in
                 let firstDistance = firstRetailer.coordinates.distanceInMilesTo(locationGeoPoint)
                 let secondDistance = secondRetailer.coordinates.distanceInMilesTo(locationGeoPoint)
                 
                 return firstDistance < secondDistance
-              })
+              }
             }
-          })
+          }
+          dispatch_group_leave(loadGroup)
         }
-        dispatch_group_leave(loadGroup)
       }
       
-      
-
       dispatch_group_notify(loadGroup, dispatch_get_main_queue()) {
         if let loadError = loadError {
           let alert = ErrorAlertController.alertControllerWithError(loadError)
@@ -88,12 +94,7 @@ class TapDetailViewController: UITableViewController {
     }
   }
   
-  func retailerDistanceCompare(retailer: Retailer) {
-    
-  }
-  
-  // MARK: - Table view data source
-  
+  // MARK: Table view data source
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     var numberOfSections = 0
     
@@ -124,23 +125,6 @@ class TapDetailViewController: UITableViewController {
     }
     return 1
   }
-
-  override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    if (section == kRetailerSection || section == kBrewerySection) {
-      return kSectionHeaderHeight
-    }
-    return 0
-  }
-  
-  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if (section == kBrewerySection) {
-      return "Brewery"
-    }
-    else if (section == kRetailerSection) {
-      return "Retailers"
-    }
-    return nil
-  }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if (indexPath.section == kRetailerSection) {
@@ -162,6 +146,24 @@ class TapDetailViewController: UITableViewController {
       cell.configureCellForObject(brewery!)
       return cell
     }
+  }
+  
+  //MARK: Table View Delegate
+  override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    if (section == kRetailerSection || section == kBrewerySection) {
+      return kSectionHeaderHeight
+    }
+    return 0
+  }
+  
+  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if (section == kBrewerySection) {
+      return "Brewery"
+    }
+    else if (section == kRetailerSection) {
+      return "Retailers"
+    }
+    return nil
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

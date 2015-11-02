@@ -14,7 +14,7 @@ class RetailerBrowseTableViewController: BaseBrowseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     let mapButton = UIBarButtonItem(title: "Map", style: .Plain, target: self, action: "mapButtonWasPressed")
-    navigationItem.leftBarButtonItem = mapButton
+    navigationItem.rightBarButtonItem = mapButton
     
     title = "Retailers"
     

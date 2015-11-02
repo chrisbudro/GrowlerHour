@@ -1,0 +1,879 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C081F911BE00A8000C09F60 /* SimulatorCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C081F901BE00A8000C09F60 /* SimulatorCheck.swift */; settings = {ASSET_TAGS = (); }; };
+		4C081F931BE6BD5D00C09F60 /* RetailerMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C081F921BE6BD5D00C09F60 /* RetailerMapAnnotation.swift */; settings = {ASSET_TAGS = (); }; };
+		4C081F951BE6C04900C09F60 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C081F941BE6C04900C09F60 /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4C081F971BE6CF4000C09F60 /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C081F961BE6CF4000C09F60 /* MapViewExtension.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1D46E61AE71D4F00855816 /* BeerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D46E51AE71D4F00855816 /* BeerViewCell.swift */; };
+		4C1D47331AE84FE200855816 /* BreweryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D47321AE84FE200855816 /* BreweryViewCell.swift */; };
+		4C1D47351AE8E1AD00855816 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D47341AE8E1AD00855816 /* Brewery.swift */; };
+		4C295CBA1AF3EA07009F051B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C295CB91AF3EA07009F051B /* FilterViewController.swift */; };
+		4C295CBE1AF40F78009F051B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C295CBD1AF40F78009F051B /* Filter.swift */; };
+		4C4639201B9E982900E208F5 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46391F1B9E982900E208F5 /* BaseTableViewController.swift */; };
+		4C46392C1B9F675100E208F5 /* BreweryBrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46392B1B9F675100E208F5 /* BreweryBrowseTableViewController.swift */; };
+		4C46392E1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46392D1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift */; };
+		4C4639321B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4639311B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift */; };
+		4C4639371B9FDAF500E208F5 /* BreweryFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4639361B9FDAF500E208F5 /* BreweryFilterTableViewController.swift */; };
+		4C4639391B9FE0A800E208F5 /* StyleFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4639381B9FE0A800E208F5 /* StyleFilterTableViewController.swift */; };
+		4C46393B1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */; };
+		4C46393E1B9FE39F00E208F5 /* BreweryDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */; };
+		4C4639401B9FE5C100E208F5 /* BreweryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */; };
+		4C6B77F61BDACA2800E42793 /* BaseBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4C71D1511BAF81AE0057962C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1501BAF81AE0057962C /* LocationService.swift */; settings = {ASSET_TAGS = (); }; };
+		4C71D1531BAF84F30057962C /* ErrorAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4C7AC4291BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AC4281BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib */; settings = {ASSET_TAGS = (); }; };
+		4C87BFC51AF4576000217591 /* RetailerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BFC41AF4576000217591 /* RetailerViewCell.swift */; };
+		4C90251E1B311A5A0034CC9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90251D1B311A5A0034CC9D /* Constants.swift */; };
+		4CA1721C1BC7223D0082A87D /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1721B1BC7223D0082A87D /* TableViewDataSource.swift */; settings = {ASSET_TAGS = (); }; };
+		4CA172251BCD59F40082A87D /* DisplayImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA172241BCD59F40082A87D /* DisplayImageService.swift */; settings = {ASSET_TAGS = (); }; };
+		4CA172A71BD03F550082A87D /* ConfigurableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA172A61BD03F550082A87D /* ConfigurableCellProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		4CA172AB1BD0BC500082A87D /* UIView+BackgroundShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA172AA1BD0BC500082A87D /* UIView+BackgroundShadow.swift */; settings = {ASSET_TAGS = (); }; };
+		4CAB46331BB9CA7D0091EE38 /* BeerStyleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB46321BB9CA7D0091EE38 /* BeerStyleDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4CAB46351BB9D04C0091EE38 /* RetailerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB46341BB9D04C0091EE38 /* RetailerDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4CAB46381BBC8C0D0091EE38 /* BaseFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB46371BBC8C0D0091EE38 /* BaseFilterTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4CC1ACA01BBE44A50082AECE /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1AC9F1BBE44A50082AECE /* SearchResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4CC1ACA21BBEEC2E0082AECE /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACA11BBEEC2E0082AECE /* QueryManager.swift */; settings = {ASSET_TAGS = (); }; };
+		4CC1ACAB1BC1C2270082AECE /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACAA1BC1C2270082AECE /* LocationSearchTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4CC1ACAD1BC1CD800082AECE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACAC1BC1CD800082AECE /* Keys.swift */; settings = {ASSET_TAGS = (); }; };
+		4CC1ACAF1BC22FC50082AECE /* GooglePlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACAE1BC22FC50082AECE /* GooglePlacesService.swift */; settings = {ASSET_TAGS = (); }; };
+		4CC1ACB11BC23E530082AECE /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACB01BC23E530082AECE /* ErrorHandler.swift */; settings = {ASSET_TAGS = (); }; };
+		4CC1ACB31BC24A3B0082AECE /* BaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1ACB21BC24A3B0082AECE /* BaseDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4CD6F1751B9DFF3300F9DDBD /* MainBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6F1741B9DFF3300F9DDBD /* MainBrowseViewController.swift */; };
+		4CDEAE561B03BE6B0089815E /* RetailerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDEAE551B03BE6B0089815E /* RetailerViewCell.xib */; };
+		4CDEAE581B03C3710089815E /* TapViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDEAE571B03C3710089815E /* TapViewCell.xib */; };
+		4CDEAE5A1B03C4760089815E /* BreweryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDEAE591B03C4760089815E /* BreweryViewCell.xib */; };
+		4CDEAE5C1B03C5C90089815E /* BeerStyleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDEAE5B1B03C5C90089815E /* BeerStyleViewCell.xib */; };
+		4CDEAE641B03E7470089815E /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEAE631B03E7470089815E /* Tap.swift */; };
+		4CDEAE6A1B0538380089815E /* Retailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEAE691B0538380089815E /* Retailer.swift */; };
+		4CDEAE6C1B05A7050089815E /* BeerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEAE6B1B05A7050089815E /* BeerStyle.swift */; };
+		4CDEAE761B096A6B0089815E /* TapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEAE751B096A6B0089815E /* TapDetailViewController.swift */; };
+		4CEC52531BDDD723005293C7 /* NoResultsBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC52521BDDD723005293C7 /* NoResultsBackgroundView.xib */; settings = {ASSET_TAGS = (); }; };
+		8E1483741AFC18AC00166FB8 /* BeerStyleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1483731AFC18AC00166FB8 /* BeerStyleViewCell.swift */; };
+		8E4E69C11AD8684D00C7A071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E69C01AD8684D00C7A071 /* AppDelegate.swift */; };
+		8E4E69C61AD8684D00C7A071 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E4E69C41AD8684D00C7A071 /* Main.storyboard */; };
+		8E4E69C81AD8684D00C7A071 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4E69C71AD8684D00C7A071 /* Images.xcassets */; };
+		8E4E69CB1AD8684D00C7A071 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E4E69C91AD8684D00C7A071 /* LaunchScreen.xib */; };
+		8E4E69D71AD8684D00C7A071 /* growlersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E69D61AD8684D00C7A071 /* growlersTests.swift */; };
+		E382915521019DB471732D0E /* Pods_GrowlerHour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286AEFFD7BC765E8557C83B8 /* Pods_GrowlerHour.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8E4E69D11AD8684D00C7A071 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E4E69B31AD8684D00C7A071 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E4E69BA1AD8684D00C7A071;
+			remoteInfo = growlers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		286AEFFD7BC765E8557C83B8 /* Pods_GrowlerHour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrowlerHour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C081F901BE00A8000C09F60 /* SimulatorCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorCheck.swift; sourceTree = "<group>"; };
+		4C081F921BE6BD5D00C09F60 /* RetailerMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerMapAnnotation.swift; sourceTree = "<group>"; };
+		4C081F941BE6C04900C09F60 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4C081F961BE6CF4000C09F60 /* MapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
+		4C158A551BABCF4C000AB283 /* Pods_growlers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_growlers.framework; path = "build/Debug-iphoneos/Pods_growlers.framework"; sourceTree = "<group>"; };
+		4C1D46E51AE71D4F00855816 /* BeerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerViewCell.swift; sourceTree = "<group>"; };
+		4C1D47321AE84FE200855816 /* BreweryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryViewCell.swift; sourceTree = "<group>"; };
+		4C1D47341AE8E1AD00855816 /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
+		4C295CB91AF3EA07009F051B /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FilterViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4C295CBD1AF40F78009F051B /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		4C46391F1B9E982900E208F5 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BaseTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4C46392B1B9F675100E208F5 /* BreweryBrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BreweryBrowseTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4C46392D1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StyleBrowseTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4C4639311B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RetailerBrowseTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4C4639361B9FDAF500E208F5 /* BreweryFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryFilterTableViewController.swift; sourceTree = "<group>"; };
+		4C4639381B9FE0A800E208F5 /* StyleFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleFilterTableViewController.swift; sourceTree = "<group>"; };
+		4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerFilterTableViewController.swift; sourceTree = "<group>"; };
+		4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreweryDetailHeader.xib; sourceTree = "<group>"; };
+		4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDetailTableViewController.swift; sourceTree = "<group>"; };
+		4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBrowseViewController.swift; sourceTree = "<group>"; };
+		4C71D1501BAF81AE0057962C /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewController.swift; sourceTree = "<group>"; };
+		4C7AC4281BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ByLocationBrowseCell.xib; sourceTree = "<group>"; };
+		4C87BFC41AF4576000217591 /* RetailerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerViewCell.swift; sourceTree = "<group>"; };
+		4C87BFC81AF4738900217591 /* growlers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "growlers-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C90251D1B311A5A0034CC9D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4CA1721B1BC7223D0082A87D /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		4CA172241BCD59F40082A87D /* DisplayImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayImageService.swift; sourceTree = "<group>"; };
+		4CA172A61BD03F550082A87D /* ConfigurableCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCellProtocol.swift; sourceTree = "<group>"; };
+		4CA172AA1BD0BC500082A87D /* UIView+BackgroundShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+BackgroundShadow.swift"; sourceTree = "<group>"; };
+		4CAB46321BB9CA7D0091EE38 /* BeerStyleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerStyleDetailViewController.swift; sourceTree = "<group>"; };
+		4CAB46341BB9D04C0091EE38 /* RetailerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerDetailViewController.swift; sourceTree = "<group>"; };
+		4CAB46371BBC8C0D0091EE38 /* BaseFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFilterTableViewController.swift; sourceTree = "<group>"; };
+		4CC1AC9F1BBE44A50082AECE /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SearchResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4CC1ACA11BBEEC2E0082AECE /* QueryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = QueryManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4CC1ACAA1BC1C2270082AECE /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		4CC1ACAC1BC1CD800082AECE /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		4CC1ACAE1BC22FC50082AECE /* GooglePlacesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesService.swift; sourceTree = "<group>"; };
+		4CC1ACB01BC23E530082AECE /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		4CC1ACB21BC24A3B0082AECE /* BaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDetailViewController.swift; sourceTree = "<group>"; };
+		4CD6F1741B9DFF3300F9DDBD /* MainBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainBrowseViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4CDEAE551B03BE6B0089815E /* RetailerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RetailerViewCell.xib; sourceTree = "<group>"; };
+		4CDEAE571B03C3710089815E /* TapViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapViewCell.xib; sourceTree = "<group>"; };
+		4CDEAE591B03C4760089815E /* BreweryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreweryViewCell.xib; sourceTree = "<group>"; };
+		4CDEAE5B1B03C5C90089815E /* BeerStyleViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeerStyleViewCell.xib; sourceTree = "<group>"; };
+		4CDEAE631B03E7470089815E /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
+		4CDEAE691B0538380089815E /* Retailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Retailer.swift; sourceTree = "<group>"; };
+		4CDEAE6B1B05A7050089815E /* BeerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerStyle.swift; sourceTree = "<group>"; };
+		4CDEAE751B096A6B0089815E /* TapDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TapDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4CEC52521BDDD723005293C7 /* NoResultsBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultsBackgroundView.xib; sourceTree = "<group>"; };
+		5A7337EB3D2D14087E3C9FAC /* Pods-GrowlerHour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowlerHour.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrowlerHour/Pods-GrowlerHour.release.xcconfig"; sourceTree = "<group>"; };
+		6BD56F62D1C717FF9632750C /* Pods-growlers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-growlers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-growlers/Pods-growlers.debug.xcconfig"; sourceTree = "<group>"; };
+		8E1483731AFC18AC00166FB8 /* BeerStyleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerStyleViewCell.swift; sourceTree = "<group>"; };
+		8E4E69BB1AD8684D00C7A071 /* GrowlerHour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrowlerHour.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E4E69BF1AD8684D00C7A071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E4E69C01AD8684D00C7A071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8E4E69C51AD8684D00C7A071 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8E4E69C71AD8684D00C7A071 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8E4E69CA1AD8684D00C7A071 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8E4E69D01AD8684D00C7A071 /* GrowlerHour.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrowlerHour.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E4E69D51AD8684D00C7A071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E4E69D61AD8684D00C7A071 /* growlersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = growlersTests.swift; sourceTree = "<group>"; };
+		9A0AEBD8460D0DDAC327F29E /* Pods-GrowlerHour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrowlerHour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrowlerHour/Pods-GrowlerHour.debug.xcconfig"; sourceTree = "<group>"; };
+		F5B40B2C927BF05E1CF69B63 /* Pods-growlers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-growlers.release.xcconfig"; path = "Pods/Target Support Files/Pods-growlers/Pods-growlers.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8E4E69B81AD8684D00C7A071 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E382915521019DB471732D0E /* Pods_GrowlerHour.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E4E69CD1AD8684D00C7A071 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45766AD19F8E43AE9CD4CFB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				286AEFFD7BC765E8557C83B8 /* Pods_GrowlerHour.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B670CEB0E0FEA14005697A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C158A551BABCF4C000AB283 /* Pods_growlers.framework */,
+				6BD56F62D1C717FF9632750C /* Pods-growlers.debug.xcconfig */,
+				F5B40B2C927BF05E1CF69B63 /* Pods-growlers.release.xcconfig */,
+				9A0AEBD8460D0DDAC327F29E /* Pods-GrowlerHour.debug.xcconfig */,
+				5A7337EB3D2D14087E3C9FAC /* Pods-GrowlerHour.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4C158A591BACBFA3000AB283 /* Browse View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CD6F1741B9DFF3300F9DDBD /* MainBrowseViewController.swift */,
+				4C46392B1B9F675100E208F5 /* BreweryBrowseTableViewController.swift */,
+				4C46392D1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift */,
+				4C4639311B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift */,
+				4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */,
+			);
+			name = "Browse View Controllers";
+			sourceTree = "<group>";
+		};
+		4C158A5A1BACBFD9000AB283 /* Filter View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C295CB91AF3EA07009F051B /* FilterViewController.swift */,
+				4C4639361B9FDAF500E208F5 /* BreweryFilterTableViewController.swift */,
+				4C4639381B9FE0A800E208F5 /* StyleFilterTableViewController.swift */,
+				4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */,
+				4CAB46371BBC8C0D0091EE38 /* BaseFilterTableViewController.swift */,
+			);
+			name = "Filter View Controllers";
+			sourceTree = "<group>";
+		};
+		4C87BFC01AF44C0700217591 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C081F941BE6C04900C09F60 /* MapViewController.swift */,
+				4C081F961BE6CF4000C09F60 /* MapViewExtension.swift */,
+				4CC1ACAA1BC1C2270082AECE /* LocationSearchTableViewController.swift */,
+				4C46391F1B9E982900E208F5 /* BaseTableViewController.swift */,
+				4CC1AC9F1BBE44A50082AECE /* SearchResultsViewController.swift */,
+				4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */,
+				4C158A5A1BACBFD9000AB283 /* Filter View Controllers */,
+				4C158A591BACBFA3000AB283 /* Browse View Controllers */,
+				4CAB46361BB9D2D30091EE38 /* Detail View Controllers */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4C87BFC11AF44C2200217591 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CEC52521BDDD723005293C7 /* NoResultsBackgroundView.xib */,
+				4CDEAE5B1B03C5C90089815E /* BeerStyleViewCell.xib */,
+				4CDEAE591B03C4760089815E /* BreweryViewCell.xib */,
+				4CDEAE571B03C3710089815E /* TapViewCell.xib */,
+				4CDEAE551B03BE6B0089815E /* RetailerViewCell.xib */,
+				4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */,
+				8E1483731AFC18AC00166FB8 /* BeerStyleViewCell.swift */,
+				4C87BFC41AF4576000217591 /* RetailerViewCell.swift */,
+				4C1D47321AE84FE200855816 /* BreweryViewCell.swift */,
+				4C1D46E51AE71D4F00855816 /* BeerViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4CAB46361BB9D2D30091EE38 /* Detail View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */,
+				4CC1ACB21BC24A3B0082AECE /* BaseDetailViewController.swift */,
+				4CAB46321BB9CA7D0091EE38 /* BeerStyleDetailViewController.swift */,
+				4CAB46341BB9D04C0091EE38 /* RetailerDetailViewController.swift */,
+				4CDEAE751B096A6B0089815E /* TapDetailViewController.swift */,
+			);
+			name = "Detail View Controllers";
+			sourceTree = "<group>";
+		};
+		8E179FF21B056EC900BFD9D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CA172241BCD59F40082A87D /* DisplayImageService.swift */,
+				4CA1721B1BC7223D0082A87D /* TableViewDataSource.swift */,
+				4CA172A61BD03F550082A87D /* ConfigurableCellProtocol.swift */,
+				4CC1ACAE1BC22FC50082AECE /* GooglePlacesService.swift */,
+				4CC1ACA11BBEEC2E0082AECE /* QueryManager.swift */,
+				4C71D1501BAF81AE0057962C /* LocationService.swift */,
+				4CC1ACB01BC23E530082AECE /* ErrorHandler.swift */,
+				4C295CBD1AF40F78009F051B /* Filter.swift */,
+				4CDEAE6B1B05A7050089815E /* BeerStyle.swift */,
+				4CDEAE691B0538380089815E /* Retailer.swift */,
+				4C081F921BE6BD5D00C09F60 /* RetailerMapAnnotation.swift */,
+				4C1D47341AE8E1AD00855816 /* Brewery.swift */,
+				4CDEAE631B03E7470089815E /* Tap.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8E4E69B21AD8684D00C7A071 = {
+			isa = PBXGroup;
+			children = (
+				8E4E69BD1AD8684D00C7A071 /* growlers */,
+				8E4E69D31AD8684D00C7A071 /* growlersTests */,
+				8E4E69BC1AD8684D00C7A071 /* Products */,
+				4B670CEB0E0FEA14005697A5 /* Pods */,
+				45766AD19F8E43AE9CD4CFB9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8E4E69BC1AD8684D00C7A071 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E4E69BB1AD8684D00C7A071 /* GrowlerHour.app */,
+				8E4E69D01AD8684D00C7A071 /* GrowlerHour.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E4E69BD1AD8684D00C7A071 /* growlers */ = {
+			isa = PBXGroup;
+			children = (
+				8E4E69C01AD8684D00C7A071 /* AppDelegate.swift */,
+				4CC1ACAC1BC1CD800082AECE /* Keys.swift */,
+				8E4E69C41AD8684D00C7A071 /* Main.storyboard */,
+				4C90251D1B311A5A0034CC9D /* Constants.swift */,
+				8E179FF21B056EC900BFD9D8 /* Model */,
+				4C87BFC01AF44C0700217591 /* Controller */,
+				4C87BFC11AF44C2200217591 /* View */,
+				8E4E69C71AD8684D00C7A071 /* Images.xcassets */,
+				8E4E69C91AD8684D00C7A071 /* LaunchScreen.xib */,
+				8E4E69BE1AD8684D00C7A071 /* Supporting Files */,
+			);
+			path = growlers;
+			sourceTree = "<group>";
+		};
+		8E4E69BE1AD8684D00C7A071 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C081F901BE00A8000C09F60 /* SimulatorCheck.swift */,
+				4C7AC4281BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib */,
+				8E4E69BF1AD8684D00C7A071 /* Info.plist */,
+				4C87BFC81AF4738900217591 /* growlers-Bridging-Header.h */,
+				4CA172AA1BD0BC500082A87D /* UIView+BackgroundShadow.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8E4E69D31AD8684D00C7A071 /* growlersTests */ = {
+			isa = PBXGroup;
+			children = (
+				8E4E69D61AD8684D00C7A071 /* growlersTests.swift */,
+				8E4E69D41AD8684D00C7A071 /* Supporting Files */,
+			);
+			path = growlersTests;
+			sourceTree = "<group>";
+		};
+		8E4E69D41AD8684D00C7A071 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8E4E69D51AD8684D00C7A071 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8E4E69BA1AD8684D00C7A071 /* GrowlerHour */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E4E69DA1AD8684D00C7A071 /* Build configuration list for PBXNativeTarget "GrowlerHour" */;
+			buildPhases = (
+				F3AFB4CD97F2027793FF7412 /* Check Pods Manifest.lock */,
+				8E4E69B71AD8684D00C7A071 /* Sources */,
+				8E4E69B81AD8684D00C7A071 /* Frameworks */,
+				8E4E69B91AD8684D00C7A071 /* Resources */,
+				FB041F76E319DE5D6AC41C09 /* Embed Pods Frameworks */,
+				3500144F98AC015F11A00910 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrowlerHour;
+			productName = growlers;
+			productReference = 8E4E69BB1AD8684D00C7A071 /* GrowlerHour.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8E4E69CF1AD8684D00C7A071 /* GrowlerHourTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E4E69DD1AD8684D00C7A071 /* Build configuration list for PBXNativeTarget "GrowlerHourTests" */;
+			buildPhases = (
+				8E4E69CC1AD8684D00C7A071 /* Sources */,
+				8E4E69CD1AD8684D00C7A071 /* Frameworks */,
+				8E4E69CE1AD8684D00C7A071 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E4E69D21AD8684D00C7A071 /* PBXTargetDependency */,
+			);
+			name = GrowlerHourTests;
+			productName = growlersTests;
+			productReference = 8E4E69D01AD8684D00C7A071 /* GrowlerHour.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8E4E69B31AD8684D00C7A071 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = chrisbudro;
+				TargetAttributes = {
+					8E4E69BA1AD8684D00C7A071 = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = HK4DD3A43A;
+					};
+					8E4E69CF1AD8684D00C7A071 = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = HK4DD3A43A;
+						TestTargetID = 8E4E69BA1AD8684D00C7A071;
+					};
+				};
+			};
+			buildConfigurationList = 8E4E69B61AD8684D00C7A071 /* Build configuration list for PBXProject "GrowlerHour" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8E4E69B21AD8684D00C7A071;
+			productRefGroup = 8E4E69BC1AD8684D00C7A071 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E4E69BA1AD8684D00C7A071 /* GrowlerHour */,
+				8E4E69CF1AD8684D00C7A071 /* GrowlerHourTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8E4E69B91AD8684D00C7A071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEC52531BDDD723005293C7 /* NoResultsBackgroundView.xib in Resources */,
+				4CDEAE561B03BE6B0089815E /* RetailerViewCell.xib in Resources */,
+				4C46393E1B9FE39F00E208F5 /* BreweryDetailHeader.xib in Resources */,
+				4CDEAE5C1B03C5C90089815E /* BeerStyleViewCell.xib in Resources */,
+				4CDEAE5A1B03C4760089815E /* BreweryViewCell.xib in Resources */,
+				4C7AC4291BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib in Resources */,
+				8E4E69C61AD8684D00C7A071 /* Main.storyboard in Resources */,
+				8E4E69CB1AD8684D00C7A071 /* LaunchScreen.xib in Resources */,
+				8E4E69C81AD8684D00C7A071 /* Images.xcassets in Resources */,
+				4CDEAE581B03C3710089815E /* TapViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E4E69CE1AD8684D00C7A071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3500144F98AC015F11A00910 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrowlerHour/Pods-GrowlerHour-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3AFB4CD97F2027793FF7412 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB041F76E319DE5D6AC41C09 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrowlerHour/Pods-GrowlerHour-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8E4E69B71AD8684D00C7A071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C90251E1B311A5A0034CC9D /* Constants.swift in Sources */,
+				4C1D47351AE8E1AD00855816 /* Brewery.swift in Sources */,
+				4CAB46351BB9D04C0091EE38 /* RetailerDetailViewController.swift in Sources */,
+				4C4639401B9FE5C100E208F5 /* BreweryDetailTableViewController.swift in Sources */,
+				4C1D46E61AE71D4F00855816 /* BeerViewCell.swift in Sources */,
+				4CAB46381BBC8C0D0091EE38 /* BaseFilterTableViewController.swift in Sources */,
+				4CAB46331BB9CA7D0091EE38 /* BeerStyleDetailViewController.swift in Sources */,
+				8E1483741AFC18AC00166FB8 /* BeerStyleViewCell.swift in Sources */,
+				4C71D1531BAF84F30057962C /* ErrorAlertViewController.swift in Sources */,
+				4C46392E1B9F6FCA00E208F5 /* StyleBrowseTableViewController.swift in Sources */,
+				4CC1ACA01BBE44A50082AECE /* SearchResultsViewController.swift in Sources */,
+				4C6B77F61BDACA2800E42793 /* BaseBrowseViewController.swift in Sources */,
+				4C4639201B9E982900E208F5 /* BaseTableViewController.swift in Sources */,
+				4C081F951BE6C04900C09F60 /* MapViewController.swift in Sources */,
+				4C4639321B9FD91D00E208F5 /* RetailerBrowseTableViewController.swift in Sources */,
+				4CD6F1751B9DFF3300F9DDBD /* MainBrowseViewController.swift in Sources */,
+				4C87BFC51AF4576000217591 /* RetailerViewCell.swift in Sources */,
+				4CC1ACA21BBEEC2E0082AECE /* QueryManager.swift in Sources */,
+				4CC1ACAB1BC1C2270082AECE /* LocationSearchTableViewController.swift in Sources */,
+				4C295CBA1AF3EA07009F051B /* FilterViewController.swift in Sources */,
+				4CA172A71BD03F550082A87D /* ConfigurableCellProtocol.swift in Sources */,
+				4CDEAE761B096A6B0089815E /* TapDetailViewController.swift in Sources */,
+				4C081F911BE00A8000C09F60 /* SimulatorCheck.swift in Sources */,
+				4CA172AB1BD0BC500082A87D /* UIView+BackgroundShadow.swift in Sources */,
+				4CA1721C1BC7223D0082A87D /* TableViewDataSource.swift in Sources */,
+				4C71D1511BAF81AE0057962C /* LocationService.swift in Sources */,
+				8E4E69C11AD8684D00C7A071 /* AppDelegate.swift in Sources */,
+				4C295CBE1AF40F78009F051B /* Filter.swift in Sources */,
+				4CC1ACB31BC24A3B0082AECE /* BaseDetailViewController.swift in Sources */,
+				4C46392C1B9F675100E208F5 /* BreweryBrowseTableViewController.swift in Sources */,
+				4CDEAE6A1B0538380089815E /* Retailer.swift in Sources */,
+				4C081F971BE6CF4000C09F60 /* MapViewExtension.swift in Sources */,
+				4C4639391B9FE0A800E208F5 /* StyleFilterTableViewController.swift in Sources */,
+				4CC1ACAD1BC1CD800082AECE /* Keys.swift in Sources */,
+				4CDEAE641B03E7470089815E /* Tap.swift in Sources */,
+				4CC1ACB11BC23E530082AECE /* ErrorHandler.swift in Sources */,
+				4C1D47331AE84FE200855816 /* BreweryViewCell.swift in Sources */,
+				4C4639371B9FDAF500E208F5 /* BreweryFilterTableViewController.swift in Sources */,
+				4C46393B1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift in Sources */,
+				4CC1ACAF1BC22FC50082AECE /* GooglePlacesService.swift in Sources */,
+				4CA172251BCD59F40082A87D /* DisplayImageService.swift in Sources */,
+				4CDEAE6C1B05A7050089815E /* BeerStyle.swift in Sources */,
+				4C081F931BE6BD5D00C09F60 /* RetailerMapAnnotation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E4E69CC1AD8684D00C7A071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E4E69D71AD8684D00C7A071 /* growlersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E4E69D21AD8684D00C7A071 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E4E69BA1AD8684D00C7A071 /* GrowlerHour */;
+			targetProxy = 8E4E69D11AD8684D00C7A071 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8E4E69C41AD8684D00C7A071 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E4E69C51AD8684D00C7A071 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8E4E69C91AD8684D00C7A071 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E4E69CA1AD8684D00C7A071 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8E4E69D81AD8684D00C7A071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.chrisbudro.growlers";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.chrisbudro.growlers";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8E4E69D91AD8684D00C7A071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.chrisbudro.growlers";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.chrisbudro.growlers";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8E4E69DB1AD8684D00C7A071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A0AEBD8460D0DDAC327F29E /* Pods-GrowlerHour.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = growlers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CoreBluetooth\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"Parse\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chrisbudro.growlers;
+				PRODUCT_NAME = GrowlerHour;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "growlers/growlers-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8E4E69DC1AD8684D00C7A071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A7337EB3D2D14087E3C9FAC /* Pods-GrowlerHour.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = growlers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CoreBluetooth\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"Parse\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chrisbudro.growlers;
+				PRODUCT_NAME = GrowlerHour;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "growlers/growlers-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		8E4E69DE1AD8684D00C7A071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = growlersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisbudro.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = GrowlerHour;
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrowlerHour.app/GrowlerHour";
+			};
+			name = Debug;
+		};
+		8E4E69DF1AD8684D00C7A071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "";
+				INFOPLIST_FILE = growlersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisbudro.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = GrowlerHour;
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrowlerHour.app/GrowlerHour";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8E4E69B61AD8684D00C7A071 /* Build configuration list for PBXProject "GrowlerHour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E4E69D81AD8684D00C7A071 /* Debug */,
+				8E4E69D91AD8684D00C7A071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E4E69DA1AD8684D00C7A071 /* Build configuration list for PBXNativeTarget "GrowlerHour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E4E69DB1AD8684D00C7A071 /* Debug */,
+				8E4E69DC1AD8684D00C7A071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E4E69DD1AD8684D00C7A071 /* Build configuration list for PBXNativeTarget "GrowlerHourTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E4E69DE1AD8684D00C7A071 /* Debug */,
+				8E4E69DF1AD8684D00C7A071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8E4E69B31AD8684D00C7A071 /* Project object */;
+}

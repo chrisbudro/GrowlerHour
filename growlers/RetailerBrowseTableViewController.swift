@@ -13,6 +13,8 @@ class RetailerBrowseTableViewController: BaseBrowseViewController {
   //MARK: Life Cycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
+    let mapButton = UIBarButtonItem(title: "Map", style: .Plain, target: self, action: "mapButtonWasPressed")
+    navigationItem.leftBarButtonItem = mapButton
     
     title = "Retailers"
     
@@ -23,6 +25,14 @@ class RetailerBrowseTableViewController: BaseBrowseViewController {
     tableView.dataSource = dataSource
 
     updateBrowseList()
+  }
+  
+  func mapButtonWasPressed() {
+    let mapViewController = MapViewController()
+    if let retailers = dataSource?.objects as? [Retailer] {
+      mapViewController.markers = retailers.map() { $0.mapMarker }
+      navigationController?.pushViewController(mapViewController, animated: true)
+    }
   }
   
   //MARK: Table View Delegate

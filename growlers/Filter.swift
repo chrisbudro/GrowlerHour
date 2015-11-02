@@ -31,6 +31,7 @@ let kDefaultMaxSearchDistance: Double = 50
 let kDefaultLocationDetails: LocationDetails = (name: "Portland", coordinate: CLLocationCoordinate2DMake(45.523193, -122.672053))
 
 struct Filter {
+
   //MARK: Properties
   var breweryIds: [Int]
   var categoryIds: [String]

@@ -24,6 +24,22 @@ class Retailer: PFObject {
   var coreLocation: CLLocation {
     return CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
   }
+  
+  private var storedMarker: GMSMarker?
+  var mapMarker: GMSMarker {
+    var marker: GMSMarker!
+    if storedMarker == nil {
+      marker = GMSMarker(position: coreLocation.coordinate)
+      marker.title = retailerName
+      marker.snippet = streetAddress
+      marker.userData = self
+      
+      storedMarker = marker
+    } else {
+      marker = storedMarker
+    }
+    return marker
+  }
 }
 
 extension Retailer: PFSubclassing {

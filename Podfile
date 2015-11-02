@@ -2,7 +2,7 @@
 # platform :ios, '6.0'
 use_frameworks!
 
-target 'growlers' do
+target 'GrowlerHour' do
 
 pod 'Alamofire', '~> 2.0'
 pod 'AlamofireImage', '~> 1.0'
@@ -11,7 +11,7 @@ pod 'GoogleMaps'
 
 end
 
-target 'growlersTests' do
+target 'GrowlerHourTests' do
 
 end
 

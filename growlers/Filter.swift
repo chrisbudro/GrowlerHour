@@ -38,11 +38,11 @@ struct Filter {
   var tapIds: [Int]
   var retailerIds: [String]
   
-  var locationDetails: LocationDetails? {
-    didSet {
-      isDirty = true
-    }
-  }
+//  var locationDetails: LocationDetails? {
+//    didSet {
+//      isDirty = true
+//    }
+//  }
   var abvRange: (min: Int, max: Int) {
     didSet {
       isDirty = true
@@ -53,11 +53,11 @@ struct Filter {
       isDirty = true
     }
   }
-  var maxDistance: Double {
-    didSet {
-      isDirty = true
-    }
-  }
+//  var maxDistance: Double {
+//    didSet {
+//      isDirty = true
+//    }
+//  }
   var sortDescriptor: NSSortDescriptor {
     didSet {
       isDirty = true
@@ -95,7 +95,7 @@ struct Filter {
     self.abvRange = (min: kDefaultMinAbvValue, max: kDefaultMaxAbvValue)
     self.ibuRange = (min: kDefaultMinIbuValue, max: kDefaultMaxIbuValue)
     self.sortDescriptor = NSSortDescriptor(key: SortOrder.WhenTapped.rawValue, ascending: true)
-    self.maxDistance = kDefaultMaxSearchDistance
+//    self.maxDistance = kDefaultMaxSearchDistance
     self.includeMisc = false
     self.includeCider = false
   }
@@ -173,35 +173,35 @@ struct Filter {
   }
 
   //MARK: Location Details
-  mutating func retrieveLocationDetails(completion: (locationDetails: LocationDetails?, error: NSError?) -> Void) {
-    if let locationDetails = locationDetails {
-      completion(locationDetails: locationDetails, error: nil)
-    } else if let currentLocationDetails = LocationService.shared.locationDetails {
-      locationDetails = currentLocationDetails
-      completion(locationDetails: locationDetails, error: nil)
-    } else {
-      LocationService.shared.startMonitoringLocation { (newLocationDetails, error) -> Void in
-        if let _ = error {
-          self.locationDetails = kDefaultLocationDetails
-        } else if let newLocationDetails = newLocationDetails {
-          self.locationDetails = newLocationDetails
-        }
-        completion(locationDetails: self.locationDetails, error: nil)
-      }
-    }
-  }
-  
-  mutating func locationGeoPoint(completion: (locationGeoPoint: PFGeoPoint?, error: NSError?) -> Void) {
-    retrieveLocationDetails { (locationDetails, error) -> Void in
-      if let error = error {
-        completion(locationGeoPoint: nil, error: error)
-      } else if let locationDetails = locationDetails {
-        let coordinate = locationDetails.coordinate
-        let geoPoint = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        completion(locationGeoPoint: geoPoint, error: nil)
-      }
-    }
-  }
+//  mutating func retrieveLocationDetails(completion: (locationDetails: LocationDetails?, error: NSError?) -> Void) {
+//    if let locationDetails = locationDetails {
+//      completion(locationDetails: locationDetails, error: nil)
+//    } else if let currentLocationDetails = LocationService.shared.locationDetails {
+//      locationDetails = currentLocationDetails
+//      completion(locationDetails: locationDetails, error: nil)
+//    } else {
+//      LocationService.shared.startMonitoringLocation { (newLocationDetails, error) -> Void in
+//        if let _ = error {
+//          self.locationDetails = kDefaultLocationDetails
+//        } else if let newLocationDetails = newLocationDetails {
+//          self.locationDetails = newLocationDetails
+//        }
+//        completion(locationDetails: self.locationDetails, error: nil)
+//      }
+//    }
+//  }
+//  
+//  mutating func locationGeoPoint(completion: (locationGeoPoint: PFGeoPoint?, error: NSError?) -> Void) {
+//    retrieveLocationDetails { (locationDetails, error) -> Void in
+//      if let error = error {
+//        completion(locationGeoPoint: nil, error: error)
+//      } else if let locationDetails = locationDetails {
+//        let coordinate = locationDetails.coordinate
+//        let geoPoint = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+//        completion(locationGeoPoint: geoPoint, error: nil)
+//      }
+//    }
+//  }
   
 
 }

@@ -11,33 +11,54 @@ import CoreLocation
 import Parse
 
 typealias LocationUpdateHandler = ((locationDetails: LocationDetails?, error: NSError?) -> Void)
+typealias GeoPointUpdateHandler = ((geoPoint: PFGeoPoint?, error: NSError?) -> Void)
 
 class LocationService: NSObject, CLLocationManagerDelegate {
   
   //MARK: Singleton Instance
   static let shared = LocationService()
   
+  //MARK: Constants
+  let kDefaultLocationFetchTimer: NSTimeInterval = 20
+  
   //MARK: Properties
+  private var timeout: NSTimer?
   private var locationUpdateHandler: LocationUpdateHandler?
-  let locationManager = CLLocationManager()
-  private(set) var currentLocation: CLLocation? {
+  private let locationManager = CLLocationManager()
+  private var currentLocation: CLLocation? {
     willSet {
       let userInfo = [kNewLocationKey: newValue!]
       NSNotificationCenter.defaultCenter().postNotificationName(kLocationUpdatedNotification, object: nil, userInfo: userInfo)
     }
   }
-  var currentGeoPoint: PFGeoPoint? {
-    if let currentLocation = currentLocation {
-      return PFGeoPoint(location: currentLocation)
+
+  private var _locationDetails: LocationDetails?
+  var locationDetails: LocationDetails? {
+    get {
+      if (_locationDetails != nil) {
+        return _locationDetails
+      } else if let currentLocationDetails = currentLocationDetails {
+        return currentLocationDetails
+      }
+      return nil
     }
-    return nil
+    set {
+      _locationDetails = newValue
+    }
   }
   
-  var locationDetails: LocationDetails? {
+  var currentLocationDetails: LocationDetails? {
     if let currentLocation = currentLocation {
       return (name: "Current Location", coordinate: currentLocation.coordinate)
     }
     return nil
+  }
+  
+  var locationIsDirty = false
+  var searchRadiusInMiles: Double = 50 {
+    didSet {
+      locationIsDirty = true
+    }
   }
   
   //MARK: Initializer
@@ -47,9 +68,52 @@ class LocationService: NSObject, CLLocationManagerDelegate {
   }
   
   //MARK: Helper Methods
+  func setSelectedLocation(locationDetails: LocationDetails) {
+    self.locationDetails = locationDetails
+  }
+  
+  func setSelectedLocationToCurrentLocation() {
+    if let currentLocationDetails = currentLocationDetails {
+      locationDetails = currentLocationDetails
+    }
+  }
+  
+  func setSearchRadius(searchRadius: Double) {
+    searchRadiusInMiles = searchRadius
+  }
+  
+  func selectedLocationIfAvailable(completion: LocationUpdateHandler) {
+    locationIsDirty = false
+    
+    if let locationDetails = locationDetails {
+      completion(locationDetails: locationDetails, error: nil)
+    } else {
+      startMonitoringLocation { (locationDetails, error) -> Void in
+        if let error = error {
+          completion(locationDetails: nil, error: error)
+        } else if let locationDetails = locationDetails {
+          self.locationDetails = locationDetails
+          completion(locationDetails: locationDetails, error: nil)
+        }
+      }
+    }
+  }
+  
+  func selectedGeoPointIfAvailable(completion: GeoPointUpdateHandler) {
+    selectedLocationIfAvailable() { (locationDetails, error) in
+      if let error = error {
+        completion(geoPoint: nil, error: error)
+      } else if let locationDetails = locationDetails {
+        let lat = locationDetails.coordinate.latitude
+        let long = locationDetails.coordinate.longitude
+        let geoPoint = PFGeoPoint(latitude: lat, longitude: long)
+        completion(geoPoint: geoPoint, error: nil)
+      }
+    }
+  }
+  
   func startMonitoringLocation(completion: LocationUpdateHandler?) {
-    let userInfo = [NSLocalizedDescriptionKey: "Location Services is required to filter by proximity.  Please enable Location Services in the Settings app or select a manual location in the filter settings"]
-    let servicesDisabledError = NSError(domain: kGrowlerErrorDomain, code: kGrowlerDefaultErrorCode, userInfo: userInfo)
+    let servicesDisabledError = ErrorHandler.errorWithMessage("Location Services is required to filter by proximity.  Please enable Location Services in the Settings app or select a manual location in the filter settings")
     
     if SimulatorCheck.isSimulator {
       completion?(locationDetails: kDefaultLocationDetails, error: nil)
@@ -67,7 +131,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         else
         {
           locationUpdateHandler = completion
-          
+          timeout = NSTimer.scheduledTimerWithTimeInterval(kDefaultLocationFetchTimer, target: self, selector: "locationFetchTimedOut", userInfo: nil, repeats: false)
+
           locationManager.stopMonitoringSignificantLocationChanges()
           locationManager.startMonitoringSignificantLocationChanges()
         }
@@ -77,9 +142,14 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
   }
   
+  private func locationFetchTimedOut() {
+    let error = ErrorHandler.errorWithMessage("We were unable to retrieve your current location.  Please manually enter a location or try again later")
+    locationUpdateHandler?(locationDetails: nil, error: error)
+    locationUpdateHandler = nil
+  }
+  
   //MARK: Core Location Manager Delegate
   func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-    
     if (status == .AuthorizedAlways || status == .AuthorizedWhenInUse) {
       manager.startMonitoringSignificantLocationChanges()
     }
@@ -89,10 +159,12 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     if let location = locations.last {
       currentLocation = location
       locationUpdateHandler?(locationDetails: locationDetails, error: nil)
+      timeout?.invalidate()
     }
   }
   
   func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
     locationUpdateHandler?(locationDetails: nil, error: error)
+    timeout?.invalidate()
   }
 }

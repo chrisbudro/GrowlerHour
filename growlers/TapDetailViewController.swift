@@ -66,7 +66,7 @@ class TapDetailViewController: UITableViewController {
           loadError = error
         } else if let retailers = retailers as? [Retailer] {
           
-          self.filter.locationGeoPoint { (locationGeoPoint, error) -> Void in
+          LocationService.shared.selectedGeoPointIfAvailable { (locationGeoPoint, error) -> Void in
             if let error = error {
               loadError = error
             } else if let locationGeoPoint = locationGeoPoint {

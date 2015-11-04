@@ -26,9 +26,9 @@ final class MainBrowseViewController: UITableViewController {
 
   //MARK: Life Cycle Methods
   override func viewDidLoad() {
-    filter.retrieveLocationDetails { (locationDetails, error) -> Void in
-      self.filter.locationDetails = locationDetails
-    }
+//    filter.retrieveLocationDetails { (locationDetails, error) -> Void in
+//      self.filter.locationDetails = locationDetails
+//    }
     
     navigationItem.titleView = UIImageView(image: UIImage(named: "GrowlerHour"))
     let filterButton = UIBarButtonItem(image: UIImage(named: "sliders"), style: .Plain, target: self, action: "showFiltersWasPressed")

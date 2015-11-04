@@ -11,11 +11,11 @@ import UIKit
 class MapViewController: UIViewController {
   
   //MARK: Constants
-  let kMapPadding: CGFloat = 10
+  let mapPadding: CGFloat = 10
   
   //MARK: Properties
   private var mapView: GMSMapView!
-  var markers = [GMSMarker]()
+  var objects = [GMSMappable]()
 
   //MARK: Life Cycle Methods
   override func loadView() {
@@ -35,18 +35,18 @@ class MapViewController: UIViewController {
   
   //MARK: Helper Methods
   func addMarkersToMap() {
-    for marker in markers {
-      marker.map = mapView
+    for object in objects {
+      object.mapMarker.map = mapView
     }
   }
   
   func centerCameraOnMarkers() {
     let path = GMSMutablePath()
-    for marker in markers {
-      path.addCoordinate(marker.position)
+    for object in objects {
+      path.addCoordinate(object.mapMarker.position)
     }
     let bounds = GMSCoordinateBounds(path: path)
-    let camera = mapView.cameraForBounds(bounds, insets: UIEdgeInsets(top: kMapPadding, left: kMapPadding, bottom: kMapPadding, right: kMapPadding))
+    let camera = mapView.cameraForBounds(bounds, insets: UIEdgeInsets(top: mapPadding, left: mapPadding, bottom: mapPadding, right: mapPadding))
     mapView.animateToCameraPosition(camera)
   }
 }

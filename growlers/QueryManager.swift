@@ -85,13 +85,13 @@ class QueryManager {
       query.whereKey("categories", notEqualTo: PFObject(withoutDataWithClassName: "Categories", objectId: "Ram0dmMRPd"))
     }
 
-    filter.locationGeoPoint { (locationGeoPoint, error) -> Void in
+    LocationService.shared.selectedGeoPointIfAvailable { (locationGeoPoint, error) -> Void in
       if let error = error {
         completion(results: nil, error: error)
       } else if let locationGeoPoint = locationGeoPoint {
         self.currentGeoPoint = locationGeoPoint
         let retailerQuery = Retailer.query()!
-        retailerQuery.whereKey("coordinates", nearGeoPoint: locationGeoPoint, withinMiles: self.filter.maxDistance)
+        retailerQuery.whereKey("coordinates", nearGeoPoint: locationGeoPoint, withinMiles: LocationService.shared.searchRadiusInMiles)
 
         if !self.filter.retailerIds.isEmpty && self.type != .Retailer {
           retailerQuery.whereKey("retailerId", containedIn: self.filter.retailerIds)
@@ -105,12 +105,12 @@ class QueryManager {
             completion(results: nil, error: error)
           } else if let results = results as? [Retailer] where self.type == .Retailer {
             
-            let resultsWithDistance: [Retailer] = results.map() { (retailer) -> Retailer in
-              let distance = self.distanceFromCurrentLocationToRetailer(retailer)
-              retailer.distanceFromLocation = distance
-              return retailer
-            }
-            completion(results: resultsWithDistance, error: nil)
+//            let resultsWithDistance: [Retailer] = results.map() { (retailer) -> Retailer in
+//              let distance = self.distanceFromCurrentLocationToRetailer(retailer)
+//              retailer.distanceFromLocation = distance
+//              return retailer
+//            }
+            completion(results: results, error: nil)
             
           } else if let results = results {
             completion(results: results, error: nil)
@@ -144,9 +144,9 @@ class QueryManager {
       completionHandler(taps: nil, error: error)
     }
     
-    filter.locationGeoPoint { (locationGeoPoint, error) -> Void in
+    LocationService.shared.selectedGeoPointIfAvailable { (locationGeoPoint, error) -> Void in
       if let locationGeoPoint = locationGeoPoint where objectType != .Retailer {
-        retailerQuery.whereKey("coordinates", nearGeoPoint: locationGeoPoint, withinMiles: self.filter.maxDistance)
+        retailerQuery.whereKey("coordinates", nearGeoPoint: locationGeoPoint, withinMiles: LocationService.shared.searchRadiusInMiles)
         query.whereKey("retailers", matchesQuery: retailerQuery) 
       }
       
@@ -164,18 +164,18 @@ class QueryManager {
   
   //MARK: Helper Methods
   
-  func distanceFromCurrentLocationToRetailer(retailer: Retailer) -> Double? {
-    if let
-      lat = self.filter.locationDetails?.coordinate.latitude,
-      long = self.filter.locationDetails?.coordinate.longitude {
-        let currentLocation = CLLocation(latitude: lat, longitude: long)
-        let distanceInMeters = currentLocation.distanceFromLocation(retailer.coreLocation)
-        let distanceInMiles = distanceInMeters * kMetersToMilesConversionMultiplier
-        let distanceInMilesWithTwoDecimalPlaces = Double(round(distanceInMiles*100)/100)
-        return distanceInMilesWithTwoDecimalPlaces
-    }
-    return nil
-  }
+//  func distanceFromCurrentLocationToRetailer(retailer: Retailer) -> Double? {
+//    if let
+//      lat = self.filter.locationDetails?.coordinate.latitude,
+//      long = self.filter.locationDetails?.coordinate.longitude {
+//        let currentLocation = CLLocation(latitude: lat, longitude: long)
+//        let distanceInMeters = currentLocation.distanceFromLocation(retailer.coreLocation)
+//        let distanceInMiles = distanceInMeters * kMetersToMilesConversionMultiplier
+//        let distanceInMilesWithTwoDecimalPlaces = Double(round(distanceInMiles*100)/100)
+//        return distanceInMilesWithTwoDecimalPlaces
+//    }
+//    return nil
+//  }
   
   func newQueryFromQuery(queryToMatch: PFQuery) -> PFQuery {
     var query: PFQuery!
@@ -184,7 +184,7 @@ class QueryManager {
     case .Retailer:
       query = Retailer.query()!
       if let currentGeoPoint = currentGeoPoint {
-        query.whereKey("coordinates", nearGeoPoint: currentGeoPoint, withinMiles: self.filter.maxDistance)
+        query.whereKey("coordinates", nearGeoPoint: currentGeoPoint, withinMiles: LocationService.shared.searchRadiusInMiles)
       }
     case .Brewery:
       query = Brewery.query()!

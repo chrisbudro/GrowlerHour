@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class Retailer: PFObject {
+class Retailer: PFObject, GMSMappable {
   
   @NSManaged var retailerName: String
   @NSManaged var retailerId: String
@@ -25,20 +25,46 @@ class Retailer: PFObject {
     return CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
   }
   
-  private var storedMarker: GMSMarker?
-  var mapMarker: GMSMarker {
-    var marker: GMSMarker!
-    if storedMarker == nil {
-      marker = GMSMarker(position: coreLocation.coordinate)
-      marker.title = retailerName
-      marker.snippet = streetAddress
-      marker.userData = self
-      
-      storedMarker = marker
-    } else {
-      marker = storedMarker
-    }
+//  private var storedMarker: GMSMarker?
+//  var mapMarker: GMSMarker {
+//    var marker: GMSMarker!
+//    if storedMarker == nil {
+//      marker = GMSMarker(position: coreLocation.coordinate)
+//      marker.title = retailerName
+//      marker.snippet = streetAddress
+//      marker.userData = self
+//      
+//      storedMarker = marker
+//    } else {
+//      marker = storedMarker
+//    }
+//    return marker
+//  }
+  
+  lazy var mapMarker: GMSMarker = {
+    let marker = GMSMarker(position: self.coreLocation.coordinate)
+    marker.title = self.retailerName
+    marker.snippet = self.streetAddress
+    marker.userData = self
+    
     return marker
+  }()
+
+  func distanceFromSelectedLocation(completion: (distance: Double?, error: NSError?) -> Void) {
+    LocationService.shared.selectedLocationIfAvailable { (locationDetails, error) -> Void in
+      if let error = error {
+        completion(distance: nil, error: error)
+      } else if let locationDetails = locationDetails {
+        let lat = locationDetails.coordinate.latitude
+        let long = locationDetails.coordinate.longitude
+        let currentLocation = CLLocation(latitude: lat, longitude: long)
+        let distanceInMeters = currentLocation.distanceFromLocation(self.coreLocation)
+        let distanceInMiles = distanceInMeters * kMetersToMilesConversionMultiplier
+        let distanceInMilesWithTwoDecimalPlaces = Double(round(distanceInMiles*100)/100)
+        
+        completion(distance: distanceInMilesWithTwoDecimalPlaces, error: nil)
+      }
+    }
   }
 }
 
@@ -53,4 +79,5 @@ extension Retailer: Filterable {
     return retailerId
   }
 }
+
 

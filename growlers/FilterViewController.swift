@@ -106,11 +106,15 @@ class FilterViewController: UITableViewController {
   }
   
   func setDistanceSlider() {
-    distanceSlider.setValue(Float(filter.maxDistance) / kSliderValueMultiplier, animated: true)
+    distanceSlider.setValue(Float(LocationService.shared.searchRadiusInMiles) / kSliderValueMultiplier, animated: true)
   }
   
   func setSelectedLocationLabel() {
-    selectedLocationLabel.text = filter.locationDetails?.name
+    LocationService.shared.selectedLocationIfAvailable { (locationDetails, error) -> Void in
+      if let locationDetails = locationDetails {
+        self.selectedLocationLabel.text = locationDetails.name
+      }
+    }
   }
 
   func setLabels() {
@@ -129,7 +133,7 @@ class FilterViewController: UITableViewController {
   @IBAction func doneWasPressed(sender: UIBarButtonItem) {
     abvMinTextField.resignFirstResponder()
     abvMaxTextField.resignFirstResponder()
-    if filter.isDirty {
+    if filter.isDirty || LocationService.shared.locationIsDirty {
       delegate?.filterWasUpdated(filter)
     }
     dismissViewControllerAnimated(true, completion: nil)
@@ -142,7 +146,7 @@ class FilterViewController: UITableViewController {
   
   func sliderValueChanged(slider: UISlider) {
     let maxDistance = Double(round(slider.value * kSliderValueMultiplier))
-    filter.maxDistance = maxDistance
+    LocationService.shared.setSearchRadius(maxDistance)
   }
 }
 
@@ -236,12 +240,12 @@ extension FilterViewController: FilterDelegate {
 //MARK: LocationPicker Delegate
 extension FilterViewController: LocationPickerDelegate {
   func customLocationWasPicked(locationDetails: LocationDetails) {
-    filter.locationDetails = locationDetails
+    LocationService.shared.setSelectedLocation(locationDetails)
     setLabels()
   }
   
   func currentLocationWasPicked() {
-    filter.locationDetails = LocationService.shared.locationDetails
+    LocationService.shared.setSelectedLocationToCurrentLocation()
     setLabels()
   }
 }

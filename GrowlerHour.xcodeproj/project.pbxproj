@@ -25,6 +25,7 @@
 		4C46393B1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */; };
 		4C46393E1B9FE39F00E208F5 /* BreweryDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */; };
 		4C4639401B9FE5C100E208F5 /* BreweryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */; };
+		4C47C0871BE9846D00C73089 /* GMSMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47C0861BE9846D00C73089 /* GMSMappable.swift */; settings = {ASSET_TAGS = (); }; };
 		4C6B77F61BDACA2800E42793 /* BaseBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4C71D1511BAF81AE0057962C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1501BAF81AE0057962C /* LocationService.swift */; settings = {ASSET_TAGS = (); }; };
 		4C71D1531BAF84F30057962C /* ErrorAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -95,6 +96,7 @@
 		4C46393A1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailerFilterTableViewController.swift; sourceTree = "<group>"; };
 		4C46393D1B9FE39F00E208F5 /* BreweryDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreweryDetailHeader.xib; sourceTree = "<group>"; };
 		4C46393F1B9FE5C100E208F5 /* BreweryDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDetailTableViewController.swift; sourceTree = "<group>"; };
+		4C47C0861BE9846D00C73089 /* GMSMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSMappable.swift; sourceTree = "<group>"; };
 		4C6B77F51BDACA2800E42793 /* BaseBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBrowseViewController.swift; sourceTree = "<group>"; };
 		4C71D1501BAF81AE0057962C /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		4C71D1521BAF84F30057962C /* ErrorAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		8E4E69BE1AD8684D00C7A071 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C47C0861BE9846D00C73089 /* GMSMappable.swift */,
 				4C081F901BE00A8000C09F60 /* SimulatorCheck.swift */,
 				4C7AC4281BDD6B6A00AA0AAB /* ByLocationBrowseCell.xib */,
 				8E4E69BF1AD8684D00C7A071 /* Info.plist */,
@@ -535,6 +538,7 @@
 				4CDEAE641B03E7470089815E /* Tap.swift in Sources */,
 				4CC1ACB11BC23E530082AECE /* ErrorHandler.swift in Sources */,
 				4C1D47331AE84FE200855816 /* BreweryViewCell.swift in Sources */,
+				4C47C0871BE9846D00C73089 /* GMSMappable.swift in Sources */,
 				4C4639371B9FDAF500E208F5 /* BreweryFilterTableViewController.swift in Sources */,
 				4C46393B1B9FE12C00E208F5 /* RetailerFilterTableViewController.swift in Sources */,
 				4CC1ACAF1BC22FC50082AECE /* GooglePlacesService.swift in Sources */,

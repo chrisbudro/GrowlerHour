@@ -32,20 +32,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
   }
 
-  private var _locationDetails: LocationDetails?
-  var locationDetails: LocationDetails? {
-    get {
-      if (_locationDetails != nil) {
-        return _locationDetails
-      } else if let currentLocationDetails = currentLocationDetails {
-        return currentLocationDetails
-      }
-      return nil
-    }
-    set {
-      _locationDetails = newValue
-    }
-  }
+  var locationDetails: LocationDetails?
   
   var currentLocationDetails: LocationDetails? {
     if let currentLocation = currentLocation {
@@ -70,11 +57,13 @@ class LocationService: NSObject, CLLocationManagerDelegate {
   //MARK: Helper Methods
   func setSelectedLocation(locationDetails: LocationDetails) {
     self.locationDetails = locationDetails
+    locationIsDirty = true
   }
   
   func setSelectedLocationToCurrentLocation() {
     if let currentLocationDetails = currentLocationDetails {
       locationDetails = currentLocationDetails
+      locationIsDirty = true
     }
   }
   
@@ -83,8 +72,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
   }
   
   func selectedLocationIfAvailable(completion: LocationUpdateHandler) {
-    locationIsDirty = false
-    
     if let locationDetails = locationDetails {
       completion(locationDetails: locationDetails, error: nil)
     } else {

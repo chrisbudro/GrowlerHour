@@ -45,6 +45,7 @@ class FilterViewController: UITableViewController {
   //MARK: Properties
   weak var delegate: FilterDelegate?
   var filter: Filter!
+  var locationIsDirty = false
   
   //MARK: Life Cycle Methods
   override func viewDidLoad() {
@@ -135,11 +136,13 @@ class FilterViewController: UITableViewController {
     abvMaxTextField.resignFirstResponder()
     if filter.isDirty || LocationService.shared.locationIsDirty {
       delegate?.filterWasUpdated(filter)
+      LocationService.shared.locationIsDirty = false
     }
     dismissViewControllerAnimated(true, completion: nil)
   }
   
   @IBAction func cancelWasPressed(sender: UIBarButtonItem) {
+    LocationService.shared.locationIsDirty = false
     filter.isDirty = false
     dismissViewControllerAnimated(true, completion: nil)
   }

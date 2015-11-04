@@ -45,7 +45,11 @@ extension RetailerViewCell: ConfigurableCell {
     if let retailer = object as? Retailer {
       retailerNameLabel.text = retailer.retailerName
       retailerAddressLabel.text = "\(retailer.streetAddress), \(retailer.city)"
-      distanceLabel.text = retailer.distanceFromLocation != nil ? "\(retailer.distanceFromLocation!) mi" : ""
+      retailer.distanceFromSelectedLocation({ (distance, error) -> Void in
+        if let distance = distance {
+          self.distanceLabel.text = "\(distance) mi"
+        }
+      })
       
       DisplayImageService.setImageView(retailerImageView, withUrlString: retailer.photo?.url, placeholderImage: UIImage(named: "GrowlerPlaceholder"))
     }

@@ -13,7 +13,7 @@ extension MapViewController {
     if let retailer = marker.userData as? Retailer {
       let retailerDetailVC = RetailerDetailViewController()
       retailerDetailVC.retailer = retailer
-      navigationController?.pushViewController(retailerDetailVC, animated: true)
+//      navigationController?.pushViewController(retailerDetailVC, animated: true)
     }
   }
 }
